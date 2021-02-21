@@ -10,12 +10,14 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="shortcut icon" type="image/ico" href="images/favicon.ico"/>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <script src="assets/js/custom.js"></script>
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
+        <div id="main">
 			<div id="wrapper" class="divided">
 
 				<!-- One -->
@@ -28,6 +30,21 @@
 								<li><a id="toggleButton" onclick="toggleInterests()" class="button big wide">Read More</a></li>
 							</ul>
 						</div>
+                        <a style="position: fixed;z-index:100;"onclick="openNav()" class="button small">&#9776; Jump to...</a>
+                        <div class="sidenav" id="mySidenav">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                            <a href="#education">Education</a>
+                            <br /><a href="#research-positions">Research Positions</a>
+                            <br /><a href="#honors">Honors</a>
+                            <br /><a href="#skills">Skills/Interests</a>
+                            <br /><a href="#app-gallery">App Gallery</a>
+                            <br /><a href="#invited-presentations">Invited Presentations</a>
+                            <br /><a href="#memberships">Memberships</a>
+                            <br /><a href="#editorial">Editorial Experience</a>
+                            <br /><a href="#working-groups">Working Groups</a>
+                            <br /><a href="#teaching">Teaching</a>
+                            <br /><a style="padding-bottom:100px" href="#publications">Publications</a>
+                        </div>
 					</section>
                     <section id="interests" style="display:none;">
                         <div class="items style1 medium" style="margin-bottom:0">
@@ -53,7 +70,7 @@
 
 
 				<!-- Three -->
-					<section class="spotlight style1 orient-left content-align-left ">
+					<section id="education" class="spotlight style1 orient-left content-align-left ">
 						<div style="margin-left:0;margin-right:0;width:100%;max-width:100%;padding-top:30px" class="content">
 							<h2>Education</h2>
                             <header>
@@ -74,7 +91,7 @@
 						</div>
 					</section>
 
-                    <section class="spotlight style1 orient-left content-align-left ">
+                    <section id="research-positions" class="spotlight style1 orient-left content-align-left ">
 						<div style="margin-left:0;margin-right:0;width:100%;max-width:100%;padding-top:30px" class="content">
                             <h2>Research Positions</h2>
                             <header>
@@ -96,7 +113,7 @@
 						</div>
 					</section>
 
-                    <section class="spotlight style1 orient-left content-align-left ">
+                    <section id="honors" class="spotlight style1 orient-left content-align-left ">
                         <div style="margin-left:0;margin-right:0;width:100%;max-width:100%;padding-top:30px" class="content">
                             <h2>Honors</h2>
                             <header>
@@ -107,7 +124,7 @@
                         </div>
                     </section>
 
-                    <section class="spotlight style1 orient-left content-align-left ">
+                    <section id="skills" class="spotlight style1 orient-left content-align-left ">
                         <div style="margin-left:0;margin-right:0;width:100%;max-width:100%;padding-top:30px" class="content">
                             <h2>Skills / Interests</h2>
                             <header>
@@ -141,7 +158,7 @@
                         </div>
                     </section>
 
-                    <section style="padding-bottom:60px" class="wrapper style1">
+                    <section id="app-gallery" style="padding-bottom:60px" class="wrapper style1">
                         <div style="padding-top:30px;margin-left:50px;padding-bottom:20px"class="inner">
                             <h2 style="margin-bottom:0;">App Gallery</h2>
                         </div>
@@ -197,7 +214,7 @@
 
                     </section>
 
-                    <section class="spotlight style1 orient-left content-align-left ">
+                    <section id="invited-presentations" class="spotlight style1 orient-left content-align-left ">
 						<div style="margin-left:0;margin-right:0;width:100%;max-width:100%;padding-top:30px" class="content">
                             <h2>Invited Presentations</h2>
                             <header>
@@ -221,14 +238,14 @@
                         </div>
 					</section>
 
-                    <section class="spotlight style1 orient-left content-align-left ">
+                    <section id="memberships" class="spotlight style1 orient-left content-align-left ">
 						<div style="margin-left:0;margin-right:0;width:100%;max-width:100%;padding-top:30px" class="content">
                             <h2 style="margin-bottom:9px">Professional and Scientific Society Memberships</h2>
                             2018-present, American Medical Informatics Association
                         </div>
 					</section>
 
-                    <section class="spotlight style1 orient-left content-align-left ">
+                    <section id="editorial" class="spotlight style1 orient-left content-align-left ">
 						<div style="margin-left:0;margin-right:0;width:100%;max-width:100%;padding-top:30px" class="content">
                             <h2 style="margin-bottom:30px">Editorial Experience</h2>
                             <header>
@@ -239,7 +256,7 @@
                         </div>
 					</section>
 
-                    <section class="spotlight style1 orient-left content-align-left ">
+                    <section id="working-groups" class="spotlight style1 orient-left content-align-left ">
 						<div style="margin-left:0;margin-right:0;width:100%;max-width:100%;padding-top:30px" class="content">
                             <h2 style="margin-bottom:9px">Working Groups</h2>
                             2019-present, AMIA Genomics and Translational Bioinformatics working group
@@ -249,7 +266,7 @@
                         </div>
 					</section>
 
-                    <section class="spotlight style1 orient-left content-align-left ">
+                    <section id="teaching" class="spotlight style1 orient-left content-align-left ">
 						<div style="margin-left:0;margin-right:0;width:100%;max-width:100%;padding-top:30px" class="content">
                             <h2>Teaching</h2>
                             <header>
@@ -305,7 +322,7 @@
                         </div>
 					</section>
 
-                    <section class="spotlight style1 orient-left content-align-left ">
+                    <section id="publications" class="spotlight style1 orient-left content-align-left ">
 						<div style="margin-left:0;margin-right:0;width:100%;max-width:100%;padding-top:30px" class="content">
                             <h2 style="margin-bottom:9px">Publications</h2>
                             <ol>
@@ -356,7 +373,7 @@
 					</footer>
 
 			</div>
-
+        </div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
