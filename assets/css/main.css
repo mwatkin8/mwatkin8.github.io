@@ -6,6 +6,9 @@
 	pixelarity.com | hello@pixelarity.com
 	License: pixelarity.com/license
 */
+.white-hover:hover{
+    background: white;
+}
 
 .sidenav {
   height: 100%;
