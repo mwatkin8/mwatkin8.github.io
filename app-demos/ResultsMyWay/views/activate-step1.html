@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="../img/icons/dark-icon.png">
+  <title>ResultsMyWay</title>
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="../css/signin.css" rel="stylesheet">
+  <!-- JS -->
+  <script src="../js/script.js"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+
+<body>
+  <form>
+    <h3 class="h3 mb-3 font-weight-normal">Step 1</h3>
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-11">
+        <p>Enter <i>ResultsMyWay</i> activation code as provided by the enrollment letter after receiving the newborn screening test. <br>You will not need this code after you complete the signup process.</p>
+        <div class="row">
+            <legend style="font-size:18px;">ACTIVATION CODE</legend>
+            <div class="col-md-2">
+              <input type="text" id="activation-code-1" class="form-control" value="123">
+            </div>
+            -
+            <div class="col-md-2">
+              <input type="text" id="activation-code-2" class="form-control" value="456">
+            </div>
+            -
+            <div class="col-md-2">
+              <input type="text" id="activation-code-3" class="form-control" value="789">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <legend style="font-size:18px;">ZIP CODE</legend>
+            <legend style="font-size:16px;">Please enter your ZIP code</legend>
+            <div class="col-md-3">
+              <input type="text" id="zip" class="form-control" value="84121">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+          <legend style="font-size:18px;">NEWBORN DATE OF BIRTH</legend>
+          <div class="col-md-6">
+            <input class="text-muted" id="birthDate" type="date"><br>
+            <script>
+              let curr = new Date();
+              let y = curr.getFullYear();
+              let m = (curr.getMonth() + 1).toString();
+              let day = curr.getDate().toString();
+              if(m.length === 1){
+                  m = '0' + m
+              }
+              if(day.length === 1){
+                  day = '0' + day
+              }
+              document.getElementById('birthDate').value = y + "-" + m + "-" + day;
+            </script>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <a href="activate-step2.html" type="button" class="btn btn-md btn-outline-light btn-block">Next</a>
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+      </div>
+    </div>
+    <p class="mt-5 mb-3">&copy; 2020</p>
+  </form>
+</body>
+</html>

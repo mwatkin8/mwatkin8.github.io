@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="vertical_fill" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title href="">Interactive GFF3 Viewer</title>
+    <link rel="icon" href="data/gff3_icon.png">
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+
+    <link href="css/clusterize.css" rel="stylesheet">
+    <script src="js/clusterize.min.js"></script>
+
+    <!-- <script type="text/javascript" src="bower_components/d3-tip/index.js"></script> -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.9.0/d3-legend.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
+<body class="vertical_fill" onload="initialize()">
+<div class="loading"></div>
+
+<div class="nav">
+    <div style="position:relative;text-align: center;margin: 0px">
+        <div class="nav_button" >
+            <input id="classic_button" type="button" value="Classic View" onclick="classicView(this)"/>
+            <input style="margin-left: 50px" accept=".gff3" class="nav_button" type="file" id="input" onchange="handleFile(this.files)">
+        </div>
+        <img onclick="backToSumnmary()" style="width: 300px;height: 83px;" src="data/gff3_logo.png"/>
+    </div>
+</div>
+
+<div class="vertical_fill row">
+    <div class="side_bar">
+        <div class="side_content">
+            <b>Types</b>
+        </div>
+        <hr>
+        <div style="visibility: hidden;padding-left: 5px;" class="chr_select">
+               Chromosome: <select id="chr_select" onchange="changeChr(this)">
+            <option value="chrall" selected="selected">All</option>
+            <option value="chr1">Chr 1</option>
+            <option value="chr2">Chr 2</option>
+            <option value="chr3">Chr 3</option>
+            <option value="chr4">Chr 4</option>
+            <option value="chr5">Chr 5</option>
+            <option value="chr6">Chr 6</option>
+            <option value="chr7">Chr 7</option>
+            <option value="chr8">Chr 8</option>
+            <option value="chr9">Chr 9</option>
+            <option value="chr10">Chr 10</option>
+            <option value="chr11">Chr 11</option>
+            <option value="chr12">Chr 12</option>
+            <option value="chr13">Chr 13</option>
+            <option value="chr14">Chr 14</option>
+            <option value="chr15">Chr 15</option>
+            <option value="chr16">Chr 16</option>
+            <option value="chr17">Chr 17</option>
+            <option value="chr18">Chr 18</option>
+            <option value="chr19">Chr 19</option>
+            <option value="chr20">Chr 20</option>
+            <option value="chr21">Chr 21</option>
+            <option value="chr22">Chr 22</option>
+            <option value="chrX">Chr X</option>
+            <option value="chrY">Chr Y</option>
+            <option value="chrMT">Mitochondrial</option>
+
+        </select>
+        </div>
+    </div>
+    <div class="main_content"></div>
+</div>
+
+<script type="application/javascript" src="js/sideBar.js"></script>
+<script type="application/javascript" src="js/sourceChart.js"></script>
+<script type="application/javascript" src="js/typeChart.js"></script>
+<script type="application/javascript" src="js/classicView.js"></script>
+<script type="application/javascript" src="js/featureList.js"></script>
+<script type="application/javascript" src="js/detailView.js"></script>
+<script type="application/javascript" src="js/treeChart.js"></script>
+<script type="application/javascript" src="js/parse.js"></script>
+
+</body>
+</html>
+
+

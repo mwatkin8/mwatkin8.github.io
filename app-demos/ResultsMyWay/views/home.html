@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/icons/dark-icon.png">
+    <title>ResultsMyWay</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
+  </head>
+  <body onload="drawTimeline()">
+
+      <div class="container-fluid">
+        <div class="row">
+          <nav class="col-md-2 d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <div class="text-left">
+                    <img class="ml-2" href="home.html" src="../img/icons/name_icon.png" width="170px" height="17%"/>
+                </div>
+
+              <hr>
+
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">
+                    <span data-feather="home"></span>
+                    Home <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="results.html">
+                    <span data-feather="activity"></span>
+                    Results
+                  </a>
+                </li>
+              </ul>
+
+              <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                <span>Resources</span>
+                <!--a class="d-flex align-items-center text-muted" href="#">
+                  <span data-feather="plus-circle"></span>
+              </a-->
+              </h6>
+              <ul class="nav flex-column mb-2">
+                  <li class="nav-item">
+                    <a class="nav-link" href="library.html">
+                      <span data-feather="book-open"></span>
+                      Knowledge Library
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="team.html">
+                      <span data-feather="users"></span>
+                      Care Team
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="community.html">
+                      <span data-feather="smile"></span>
+                      Community
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="studies.html">
+                      <span data-feather="clipboard"></span>
+                      Clinical Studies
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="account.html">
+                      <span data-feather="settings"></span>
+                      Account Information
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../index.html">
+                      <span data-feather="log-out"></span>
+                      Log Out
+                    </a>
+                  </li>
+
+              </ul>
+            </div>
+          </nav>
+
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pl-0 pr-0">
+
+              <div id="myCarousel" class="carousel slide"  data-interval="false" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="container">
+                      <div class="carousel-caption">
+                        <h1>Amy Lee</h1>
+                        <p>Natual Mother of Baby Lee</p>
+                        <p><a class="btn btn-lg btn-outline-light" href="account.html" role="button">Edit</a></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="container">
+                      <div class="carousel-caption">
+                        <h2>Screening Timeline<br><br><br><br><br><br></h2>
+                      </div>
+                      <div id="timeline"></div>
+                    </div>
+                  </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+
+
+              <!-- Marketing messaging and featurettes
+              ================================================== -->
+              <!-- Wrap the rest of the page in another container to center all the content. -->
+
+              <div class="container marketing">
+
+                <div class="row featurette">
+                  <div class="col-md-7">
+                    <h2 class="featurette-heading">Welcome to <span class="text-muted">ResultsMyWay</span></h2>
+                    <p class="lead">This portal has been designed to guide you through your newborn screening experience. It offers clear information, support, and tools that you can use to confidently provide the care that your newborn deserves.</p>
+                  </div>
+                  <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" src="../img/icons/home-header.jpg" alt="home-header">
+                  </div>
+                </div>
+
+                <hr>
+
+
+                <!-- Three columns of text below the carousel -->
+                <div class="row">
+                  <div class="col-lg-4">
+                    <img class="rounded-circle" src="../img/icons/activity.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Results</h2>
+                    <p>Information regarding your newborn screening, pending tests, and documentation.</p>
+                    <p><a class="btn btn-secondary" href="results.html" role="button">View resource &raquo;</a></p>
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-4">
+                    <img class="rounded-circle" src="../img/icons/book-open.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Knowledge Library</h2>
+                    <p>Access and share useful articles from credible sources. Curated by <i>ResultsMyWay</i> including Baby’s First Test, National Organization for Rare Disorders, news outlets, and academic journals.</p>
+                    <p><a class="btn btn-secondary" href="library.html" role="button">View resource &raquo;</a></p>
+                  </div><!-- /.col-lg-4 -->
+                  <div class="col-lg-4">
+                    <img class="rounded-circle" src="../img/icons/users.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Care Team</h2>
+                    <p>List of your healthcare team and contacts to stay connected and help answer questions you may have.</p>
+                    <p><a class="btn btn-secondary" href="team.html" role="button">View resource &raquo;</a></p>
+                  </div>
+                  <div class="col-lg-4">
+                    <img class="rounded-circle" src="../img/icons/smile.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Community</h2>
+                    <p>Connect with national organizations, advocacy groups, and other parents online through social media.</p>
+                    <p><a class="btn btn-secondary" href="community.html" role="button">View resource &raquo;</a></p>
+                  </div>
+                  <div class="col-lg-4">
+                    <img class="rounded-circle" src="../img/icons/clipboard.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Clinical Studies</h2>
+                    <p>Stay informed about current clinical studies and enrollment information from <a href="clinicaltrials.gov">clinicaltrials.gov</a>.</p>
+                    <p><a class="btn btn-secondary" href="studies.html" role="button">View resource &raquo;</a></p>
+                  </div>
+                  <div class="col-lg-4">
+                    <img class="rounded-circle" src="../img/icons/setting.png" alt="Generic placeholder image" width="140" height="140">
+                    <h2>Account Information</h2>
+                    <p>Update personal contact information, insurance information, and manage members on patient account.</p>
+                    <p><a class="btn btn-secondary" href="account.html" role="button">View resource &raquo;</a></p>
+                  </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
+
+
+                <hr class="featurette-divider">
+
+                <!-- /END THE FEATURETTES -->
+
+              </div><!-- /.container -->
+
+
+              <!-- FOOTER -->
+              <footer class="container">
+                <p class="float-right"><a href="#">Back to top</a></p>
+                <p>&copy; 2020 Eilbeck Lab, Department of Biomedical Informatics, University of Utah | Utah Department of Health &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+              </footer>
+
+
+
+          </main>
+        </div>
+      </div>
+      <!-- JS links -->
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="../js/script.js"></script>
+      <script src="../js/bootstrap.min.js"></script>
+      <!-- Icons -->
+      <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+      <script>
+        feather.replace()
+      </script>
+  </body>
+</html>

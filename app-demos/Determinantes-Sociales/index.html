@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/sdh-icon.png">
+    <title>INSN SDH App</title>
+    <!-- CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/select.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+
+  <div id="demo-modal" class="modal">
+      <!-- The modal content -->
+      <div class="modal-content"><h4>Determinantes Sociales App Demo <button style="float:right;"class="btn btn-primary" onclick="return closeDemoModal()">Close</button></h4>
+          <i>The app was created for health providers in Lima, Peru, and is therefore in Spanish.</i>
+          <div class="text-left" style="padding-left:50px;padding-right:50px;padding-top:10px;">
+              <p>
+                  Because this is only a demo, many fields are hard coded and non-modifiable. For example, login will only work with the pre-loaded DNI 12345678-9, new patients won't be saved, edits to patient data won't be saved, additional responses to the social determinants of health collection questionnaire won't be saved/displayed in the summary view, and the Google Maps API key has been removed (so no map will display).
+              </p>
+              <p>
+                  The app was built with the following general workflow:
+                  <ol>
+                      <li style="padding-bottom:10px">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <p>
+                                      <u>Patient search and verification:</u> a DNI number is often used as a unique patient identifier in Peru. This initial screen allows users to search for patients who have already been registered. <b>In this demo, only the patient with a DNI of 12345678-9 will return a positive search result</b>.
+                                  </p>
+                                  <ul>
+                                      <li>
+                                          "Confirmar" will navigate the user to app's main summary page with that patient loaded into context.
+                                      </li>
+                                      <li>
+                                          "Incorrecto" will navigate the user to a patient registration page.
+                                      </li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6">
+                                  <img class="modal-image" src="img/verification.png"/>
+                              </div>
+                          </div>
+                      </li>
+                      <li style="padding-bottom:10px">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <p>
+                                      <u>Patient registration:</u> basic demographic information is collected for new patients.
+                                  </p>
+                                  <ul>
+                                      <li>
+                                          "Entrar" would create a patient FHIR resource and navigate the user to app's main summary page with that patient loaded into context (no new resources are created in this demo and the same sample patient will be loaded).
+                                      </li>
+                                      <li>
+                                          "Cancelar" will return the user the patient search and verification page.
+                                      </li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6">
+                                  <img class="modal-image" width="328" height="225" src="img/registration.png"/>
+                              </div>
+                          </div>
+                      </li>
+                      <li style="padding-bottom:10px">
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <p>
+                                      <u>Accessing the questionnaire:</u> the social determinants collection questionnaire can be accessed by clicking on the "Socioeconomico Familiar" option on the left sidebar of the summary page of the app.
+                                  </p>
+                                  <ul>
+                                      <li>
+                                          "Regresar" will return the user to the patient search and verification page.
+                                      </li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6">
+                                  <img class="modal-image" width="328" height="195" src="img/questionnaire-link.png"/>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="row">
+                              <div class="col-md-6">
+                                  <p>
+                                      <u>The questionnaire:</u> because this is a demo, new responses will not be saved or display on the summary page. Buttons have been added to this demo to allow users to view the Questionnaire and sample QuestionnaireResponse FHIR resources (as JSON objects).
+                                  </p>
+                                  <ul>
+                                      <li>
+                                          "Regresar" will return the user to the patient search and verification page.
+                                      </li>
+                                      <li>
+                                           "Enviar Respuesta" will return the user to the patient search and verification page.
+                                      </li>
+                                  </ul>
+                              </div>
+                              <div class="col-md-6">
+                                  <img class="modal-image" width="328" height="268" src="img/demo1.png"/>
+                                  <br /><br />
+                                  <img class="modal-image" width="328" height="209" src="img/demo2.png"/>
+                              </div>
+                          </div>
+                      </li>
+                  </ol>
+              </p>
+        </div>
+      </div>
+  </div>
+
+  <body class="text-center">
+    <div class="form-signin">
+      <img class="mb-4" src="img/sdh-icon.png" alt="" width="72" height="72">
+      <h1 class="h3 mb-1 font-weight-normal">Determinantes Sociales</h1>
+      <p class="mt-4 mb-3 text-muted">Ingrese DNI para buscar paciente</p>
+      <div class="input-group">
+          <input id="dni" class="form-control rounded" placeholder="DNI" value="12345678-9" autofocus>
+          <button id="dni-button" type="button" onclick="findPatient()" class="btn btn-primary"><i feather="search"></i>Buscar</button>
+        </div>
+        <div id="patient-search-result" style="visibility:hidden" class="my-3 p-3 bg-white rounded box-shadow">
+          <h6 class="border-bottom border-gray pb-2 mb-0">Miguel Watkins</h6>
+          <div class="media text-muted pt-2">
+            <p class="media-body pb-2 mb-0 small lh-125">
+                DNI: 12345678-9<br />
+                Sexo: Hombre<br />
+                Fecha de nacimiento: 1993-04-07<br />
+                Dirección: Jirón Manuel Candamo 286 Lince, Lima
+            </p>
+          </div>
+          <a type="button" href="views/dashboard.html" class="btn btn-small btn-success">Confirmar</a>
+          <a type="button" href="views/registration.html" class="btn btn-small btn-danger">Incorrecto</a>
+        </div>
+  </div>
+  </body>
+</html>

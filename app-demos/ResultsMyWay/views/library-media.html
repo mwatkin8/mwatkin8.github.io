@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/icons/dark-icon.png">
+    <title>ResultsMyWay</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
+</head>
+
+<body onload="loadLibrary('media')">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <div class="text-left">
+                        <img class="ml-2" href="home.html" src="../img/icons/name_icon.png" width="200px" height="17%"/>
+                    </div>
+                <hr>
+
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">
+                            <span data-feather="home"></span>
+                            Home <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="results.html">
+                            <span data-feather="activity"></span>
+                            Results
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Resources</span>
+                    <!--a class="d-flex align-items-center text-muted" href="#">
+                    <span data-feather="plus-circle"></span>
+                </a-->
+            </h6>
+            <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        <span data-feather="book-open"></span>
+                        Knowledge Library
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">
+                        <span data-feather="users"></span>
+                        Care Team
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="community.html">
+                        <span data-feather="smile"></span>
+                        Community
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="studies.html">
+                        <span data-feather="clipboard"></span>
+                        Clinical Studies
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="account.html">
+                        <span data-feather="settings"></span>
+                        Account Information
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">
+                    <span data-feather="log-out"></span>
+                    Log Out
+                  </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pl-0 pr-0">
+        <div id="myCarousel" class="carousel slide"  data-interval="false" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Knowledge Library</h1>
+                            <br>
+                            <h3>Find and access useful articles from credible sources</h3>
+                            <br>
+                            <p><button class="btn btn-lg btn-outline-light" onclick="libraryModal()" role="button">Make Suggestion</button></p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h2>Screening Timeline<br><br><br><br><br><br></h2>
+                        </div>
+                        <div id="timeline"></div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div id="library-modal" class="modal">
+            <!-- The modal content -->
+            <div class="modal-content">
+                <h4 class="border-bottom pb-2">Please provide the following</h4>
+                <div class="row"><div class="col-md-6"><h6 class="pt-2" style="float:right;">Collection: <select style="width:100px;" class="text-muted pt-2" id="library-type">
+                                <option value="">Select...</option>
+                                <option value="basic">Basic</option>
+                                <option value="nutrition">Nutrition</option>
+                                <option value="media">Media</option>
+                            </select></h6></div>
+                    <div class="col-md-6"><h6 class="pt-2" style="float:left;">Type: <select style="width:100px;" class="text-muted pt-2" id="library-type">
+                            <option value="">Select...</option>
+                            <option value="basic">Website</option>
+                            <option value="nutrition">Factsheet</option>
+                            <option value="media">Feed</option>
+                            <option value="video">Video</option>
+                        </select></h6></div>
+                </div>
+                <h6 class="pt-2">Display Name</h6>
+                <input style="width:90%;" type="text" id="primary-fname" class="form-control" placeholder="">
+                <h6 class="pt-2">URL</h6>
+                <input style="width:90%;" type="text" id="primary-fname" class="form-control" placeholder="">
+                <h6 class="pt-2">Comments:</h6>
+                <textarea id="modal-text" rows="5" cols="1" name="message-input"></textarea>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button style="float:right;" class="btn btn-primary" onclick="closeModal('library')">Submit</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button  style="float:left;" class="btn btn-primary" onclick="closeModal('library')">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="padding-left:20px;padding-right:20px;">
+            <ul class="nav nav-tabs">
+                <li class="nav-item mb-0">
+                    <h5><a class="nav-link" href="library.html">Basic Knowledge</a></h5>
+                </li>
+                <li class="nav-item mb-0">
+                    <h5><a class="nav-link" href="library-nutrition.html">Nutrition</a></h5>
+                </li>
+                <li class="nav-item mb-0">
+                    <h5><a class="nav-link" href="library-research.html">Research</a></h5>
+                </li>
+                <li class="nav-item mb-0">
+                    <h5><a class="nav-link active" href="#">Media</a></h5>
+                </li>
+            </ul>
+            <div class="row border-bottom ">
+                <div id="content-list" class="loading col-md-5"></div>
+                <div class="col-md-7 pt-3 border-left">
+                    <iframe id="preview-frame" onload="removeLoading()" class="loading" src="https://newbornscreening.health.utah.gov/news/" width="100%" height="1000px" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br>
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>&copy; 2020 Eilbeck Lab, Department of Biomedical Informatics, University of Utah | Utah Department of Health &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+    </main>
+</div>
+</div>
+<!-- JS links -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="../js/script.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+feather.replace()
+</script>
+</body>
+</html>

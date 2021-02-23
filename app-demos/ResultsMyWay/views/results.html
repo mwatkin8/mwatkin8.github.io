@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/icons/dark-icon.png">
+    <title>ResultsMyWay</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
+  </head>
+
+  <body onload="resultInit()">
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+              <div class="text-left">
+                  <img class="ml-2" href="home.html" src="../img/icons/name_icon.png" width="200px" height="17%"/>
+              </div>
+            <hr>
+
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="home.html">
+                  <span data-feather="home"></span>
+                  Home <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="results.html">
+                  <span data-feather="activity"></span>
+                  Results
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Resources</span>
+              <!--a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+            </a-->
+            </h6>
+            <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                  <a class="nav-link" href="library.html">
+                    <span data-feather="book-open"></span>
+                    Knowledge Library
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="team.html">
+                    <span data-feather="users"></span>
+                    Care Team
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="community.html">
+                    <span data-feather="smile"></span>
+                    Community
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="studies.html">
+                    <span data-feather="clipboard"></span>
+                    Clinical Studies
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="account.html">
+                    <span data-feather="settings"></span>
+                    Account Information
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">
+                    <span data-feather="log-out"></span>
+                    Log Out
+                  </a>
+                </li>
+            </ul>
+          </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pl-0 pr-0">
+
+          <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="container">
+                  <div class="carousel-caption">
+                    <h1>Results</h1>
+                    <br><br>
+                    <br>
+                    <p><a class="btn btn-lg btn-outline-light" href="#" role="button">Next Steps</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="container">
+                  <div class="carousel-caption">
+                    <h2>Screening Timeline<br><br><br><br><br><br></h2>
+                  </div>
+                  <div id="timeline"></div>
+                </div>
+              </div>
+
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
+
+
+            <!-- Marketing messaging and featurettes
+            ================================================== -->
+            <!-- Wrap the rest of the page in another container to center all the content. -->
+
+            <div class="container marketing">
+
+                <div class="row featurette pb-1">
+                  <div class="col-md-12 text-center">
+                        <p class="pb-0 mb-0">Included in demo only:</p>
+                        <button class="btn btn-primary btn-sm" onclick="messageModal('view')">View sample ORU-R01 NBS result message</button>
+                  </div>
+                </div>
+                <div id="explanation-modal" class="modal">
+                    <!-- The modal content -->
+                    <div class="modal-content"><h4>About CQL <button style="float:right;"class="btn btn-primary" onclick="return closeExpModal()">Close</button></h4>
+                        <div style="padding-left:50px;padding-right:50px;"><p>Clinical Quality Language (CQL) is an HL7 specification built for defining standardized and shareable logic. It has primarily been used for insurer/payer implementations such as <a href="http://hl7.org/fhir/us/davinci-dtr/2019May/">documentation requirements</a> and <a href="http://hl7.org/fhir/us/davinci-crd/2019May/index.html">coverage requirements discovery</a>. These implementations use CQL to determine if a certain patient has required Conditions, Encounters, Medications, or other clinical artifacts which qualify them for coverage of some type.
+
+ResultsMyWay pioneers the use of CQL for <b>retrieving clinical artifacts, using standardized logic operators, from a patient's medical record</b> which may influence the interpretation of the results of a laboratory test ordered for that patient.
+
+A collection of CQL expressions is called a Library. Expressions can query clinical artifacts as declared by the Library data model (FHIR in this case), and employ a wide variety of operator and filter logic before returning a result.
+
+<i>Example: </i>
+This expression retrieves all FHIR Encounter resources for the target patient. It also retrieves all FHIR Location resources in the health system whose "type" code is found in a valueset of codes compiled from <a href="http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType">here</a> called "Special Care Locations Set". It then filters each Encounter to see if its "Location" field reference is equal to the ID of any of the special care Locations. The expression then returns a list of structured objects, each of which contain the type and ID of a qualifying Encounter resource.
+
+<img width="100%" height="21%" src="../resources/expression-example.png" />
+
+Stored on the server, a <a href="https://www.hl7.org/fhir/library.html">FHIR Library</a> resource contains a base-64 encoded string representing the CQL Library, references to terminology requirements, and various other fields. The CQL Library can then be executed within the server by sending a POST request including the $evaluate operation and several context parameters. The server then returns the results of the CQL Library evaluation.
+
+<img width="100%" height="52%" src="../resources/cql-figure.png" />
+
+The CQL results are then typically combined with a companion <a href="https://www.hl7.org/fhir/questionnaire.html">FHIR Questionnaire</a> resource which displays criteria which have been fulfilled as well as those that may still require manual user input. These FHIR Questionnaire resources are constrained by profiles have been created by the <a href="http://hl7.org/fhir/uv/sdc/2019May/">HL7 Structured Data Capture (SDC) workgroup</a> to facilitate their use alongside CQL Libraries.
+
+In ResultsMyWay, it is anticipated that the <a href="https://www.hl7.org/fhir/questionnaireresponse.html">FHIR QuestionnaireResponse</a>, which is generated when the user completes the form and clicks "Submit", would be sent to the appropriate result-interpreting clinician or lab technician to assist them in the interpretation of the infant's NBS results.
+
+<i>This demo mocks the CQL results for the following use case:</i>
+An expecting 37-year-old mother at 33 weeks gestation with known hypothyroidism is being observed in the hospital with sudden onset nausea, vomiting, and severe headache. She is shortly diagnosed with HELLP syndrome and started on fluid resuscitation, 1 unit of packed red blood cell transfusion, and intravenous steroids. She is stabilized and prepared for immediate delivery. She gives birth to a male infant. He is found to have low birth weight, in significant hypoxia, and lethargic at delivery. He responded to supplemental oxygen and is transferred to the NICU where a blood test is collected. Lab results showed low thyroxine in the newborn as well as anemia. The newborn is blood typed and started on a blood transfusion while in the NICU. While there, a sample is collected for NBS.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- A modal element for viewing the raw resource JSON -->
+               <div id="questionnaire-modal" class="modal">
+                   <!-- The modal content -->
+                   <div class="modal-content">
+                       <h4>FHIR Questionnaire <button style="float:right;"class="btn btn-primary" onclick="closeModal('questionnaire')">Close</button></h4>
+                       <p id="questionnaire-json"></p>
+                   </div>
+               </div>
+               <div id="questionnaire-response-modal" class="modal">
+                   <!-- The modal content -->
+                   <div class="modal-content">
+                       <h4>FHIR QuestionnaireResponse <button style="float:right;"class="btn btn-primary" onclick="closeModal('questionnaire-response')">Close</button></h4>
+                       <p id="questionnaire-response-json"></p>
+                   </div>
+               </div>
+               <div id="cql-resource-modal" class="modal">
+                   <!-- The modal content -->
+                   <div class="modal-content">
+                       <h4>FHIR Resource(s) detected via CQL <button style="float:right;"class="btn btn-primary" onclick="closeModal('cql-resource')">Close</button></h4>
+                       <p id="cql-resource-json"></p>
+                   </div>
+               </div>
+               <div id="cql-modal" class="modal">
+                   <!-- The modal content -->
+                   <div class="modal-content">
+                       <h4>CQL Library <button style="float:right;"class="btn btn-primary" onclick="closeModal('cql')">Close</button></h4>
+                       <p id="cql-json"></p>
+                   </div>
+               </div>
+                <!-- A modal element for viewing the sampel result message-->
+                <div id="view-modal" class="modal">
+                    <!-- The modal content -->
+                    <div class="modal-content">
+                        <h4>Sample ORU-R01 NBS Result Message <button style="float:right;"class="btn btn-primary" onclick="closeModal('view')">Close</button></h4>
+                        <p id="oru-text"></p>
+                    </div>
+                </div>
+                <div id="loading-modal" class="loading-modal">
+                    <!-- The modal content -->
+                    <div class="loading-modal-content text-center">
+                        <h4>Loading results...</h4>
+                    </div>
+                </div>
+                <br />
+              <div class="row featurette">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs justify-content-center">
+                        <li class="nav-item">
+                          <a id="nav-pre" class="nav-link active" href="#" onclick="resultPre();return false;">Pre-Result Form</a>
+                        </li>
+                      <li class="nav-item">
+                        <a id="nav-summary" class="nav-link" href="#" onclick="resultSummary();return false;">Summary</a>
+                      </li>
+                      <li class="nav-item">
+                        <a id="nav-pdf" class="nav-link" href="#" onclick="resultPDF();return false;">PDF</a>
+                      </li>
+                      <li class="nav-item">
+                        <a id="nav-fhir" class="nav-link" href="#" onclick="resultFHIR();return false;">FHIR</a>
+                      </li>
+                    </ul>
+
+                    <div id="result-content" class="pt-3"></div>
+
+                </div>
+              </div>
+
+            </div><!-- /.container -->
+
+
+            <!-- FOOTER -->
+            <footer class="container">
+                <br />                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+              <p class="float-right"><a href="#">Back to top</a></p>
+              <p>&copy; 2020 Eilbeck Lab, Department of Biomedical Informatics, University of Utah | Utah Department of Health &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+            </footer>
+        </main>
+      </div>
+    </div>
+    <!-- JS links -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+  </body>
+</html>

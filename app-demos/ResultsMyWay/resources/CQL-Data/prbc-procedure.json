@@ -1,0 +1,17 @@
+{
+  "resourceType": "Procedure",
+  "id": "prbc-procedure",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "71493000",
+        "display": "Transfusion of packed red blood cells (procedure)"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-mother"
+  },
+  "performedDateTime": "2020-08-18T00:00:00-07:00"
+}

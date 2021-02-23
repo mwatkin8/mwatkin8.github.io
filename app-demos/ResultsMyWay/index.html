@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/icons/dark-icon.png">
+    <title>Results My Way</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/carousel.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="js/script.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin">
+      <img class="mb-4" src="img/icons/light-icon.png" alt="" width="50%" height="100%">
+      <div id="demo-modal" class="modal">
+          <!-- The modal content -->
+          <div class="modal-content"><h4>Welcome to the ResultsMyWay demo <button style="float:right;"class="btn btn-primary" onclick="return closeDemoModal()">Close</button></h4>
+              <div class="text-left" style="padding-left:50px;padding-right:50px;"><p>This is a static implementation of the application--so all required values have been preloaded to avoid any server calls. A sample patient, Baby Lee, is the source of the preloaded values. His mother, Amy Lee, is the preloaded user.
+
+<b>No login credentials are required for this demo, simply clicking "Sign In" will take you to the home page.</b> However, the account setup pages are available for preview and can be reached by clicking "Activate Account". You will ultimately be returned to this page at which point you can login with Amy Lee's preloaded fake credentials.
+
+The "Knowledge Library" and "Community" content has been created with the assumption that Baby Lee has tested positive for PKU.
+
+The "Results" section draws from a sample report from the Utah Newborn Screening Department and does not indicate PKU.</p>
+            </div>
+          </div>
+      </div>
+      <h1 style="color:white;"class="h3 mb-3 font-weight-normal">ResultsMyWay</h1>
+      <input type="email" id="username" class="form-control" placeholder="Username">
+      <input type="password" id="password" class="form-control" placeholder="Password">
+      <a href="views/home.html" class="mb-2 btn btn-lg btn-outline-light btn-block">Sign in</a>
+      <script>
+        let url = window.location.search;
+        let param = url.split('?');
+        if (param.length === 2){
+            document.getElementById('username').value = 'amylee@gmail.com';
+            document.getElementById('password').value = 'fakepass0123';
+        }
+        else{
+            displayDemoModal()
+        }
+      </script>
+      <p class="mb-4 text-muted"><a>Forgot Username?</a>&emsp;<a>Forgot Password?</a></p>
+      <hr class="mb-4" style="background-color:white;">
+      <p class="mb-2">New User?</p>
+      <a href="views/activate-step1.html" class="btn btn-md btn-light btn-block text-muted">Activate Account</a>
+      <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+{
+    "resourceType": "Condition",
+    "id": "hellp-condition",
+    "clinicalStatus": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/condition-clinical",
+                "code": "active"
+            }
+        ]
+    },
+    "verificationStatus": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/condition-ver-status",
+                "code": "confirmed"
+            }
+        ]
+    },
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "95605009",
+                "display": "Hemolysis-elevated liver enzymes-low platelet count syndrome (disorder)"
+            }
+        ],
+        "text": "Hemolysis-elevated liver enzymes-low platelet count syndrome (disorder)"
+    },
+    "subject": {
+        "reference": "Patient/patient-mother"
+    },
+    "onsetDateTime": "2020-08-18T00:00:00-06:00"
+}

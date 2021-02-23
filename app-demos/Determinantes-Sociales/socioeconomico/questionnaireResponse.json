@@ -1,0 +1,337 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "14825",
+  "meta": {
+    "versionId": "2",
+    "lastUpdated": "2021-02-21T03:55:17.000+00:00",
+    "source": "#n6KcMk6qC8S5ljOl",
+    "profile": [
+      "http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaireresponse|2.7"
+    ],
+    "tag": [
+      {
+        "code": "lformsVersion: 27.1.0"
+      }
+    ]
+  },
+  "questionnaire": "Questionnaire/14815",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/14824"
+  },
+  "authored": "2021-02-21T03:55:16.466Z",
+  "item": [
+    {
+      "linkId": "/1.0.0.0",
+      "text": "Datos generales",
+      "item": [
+        {
+          "linkId": "/1.0.0.0/76691-5",
+          "text": "Identidad de género",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "http://loinc.org",
+                "code": "LA22878-5",
+                "display": "Se identifica como hombre"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/1.0.0.0/1.2.0.0",
+          "text": "Grado de instrucción",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "Custom",
+                "code": "1.2.3.0",
+                "display": "Superior universitario"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/1.0.0.0/1.3.0.0",
+          "text": "Tipo de seguro",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "Custom",
+                "code": "1.3.3.0",
+                "display": "Essalud"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "/4.0.0.0",
+      "text": "Situacion de la vivienda",
+      "item": [
+        {
+          "linkId": "/4.0.0.0/4.1.0.0",
+          "text": "Tenencia de la vivienda",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "Custom",
+                "code": "4.1.2.0",
+                "display": "Alquilada"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/4.0.0.0/4.2.0.0",
+          "text": "Tipo de vividenda",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "Custom",
+                "code": "4.2.2.0",
+                "display": "Multifamiliar"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/4.0.0.0/4.3.0.0",
+          "text": "Infraestructura de la vivienda",
+          "item": [
+            {
+              "linkId": "/4.0.0.0/4.3.0.0/4.3.1.0",
+              "text": "Pared de la vivienda",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "Custom",
+                    "code": "4.3.1.2",
+                    "display": "Adobe"
+                  }
+                }
+              ]
+            },
+            {
+              "linkId": "/4.0.0.0/4.3.0.0/4.3.2.0",
+              "text": "Pisos",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "Custom",
+                    "code": "4.3.2.3",
+                    "display": "Cemento"
+                  }
+                }
+              ]
+            },
+            {
+              "linkId": "/4.0.0.0/4.3.0.0/4.3.4.0",
+              "text": "Eliminacion de la basura",
+              "answer": [
+                {
+                  "valueCoding": {
+                    "system": "Custom",
+                    "code": "4.3.4.6",
+                    "display": "Arroja al rio/acequia"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "/5.0.0.0",
+      "text": "Servicios básicos/Caracteristicas de la residencia",
+      "item": [
+        {
+          "linkId": "/5.0.0.0/5.1.0.0",
+          "text": "Agua",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "Custom",
+                "code": "5.1.2.0",
+                "display": "Pilón de uso público"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/5.0.0.0/5.2.0.0",
+          "text": "Higiénico",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "Custom",
+                "code": "5.2.2.0",
+                "display": "Letrina/Pozo séptico"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/5.0.0.0/5.3.0.0",
+          "text": "Alumbrado",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "Custom",
+                "code": "5.3.3.0",
+                "display": "Combustible (Kerosene/Gas)"
+              }
+            }
+          ]
+        },
+        {
+          "linkId": "/5.0.0.0/5.4.0.0",
+          "text": "Tipo de combustible para cocinar",
+          "answer": [
+            {
+              "valueCoding": {
+                "system": "Custom",
+                "code": "5.4.2.0",
+                "display": "Kerosene"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "/6.0.0.0",
+      "text": "Situación económica",
+      "item": [
+        {
+          "linkId": "/6.0.0.0/6.1.0.0",
+          "text": "Ingreso mensual (Soles)",
+          "item": [
+            {
+              "linkId": "/6.0.0.0/6.1.0.0/6.1.1.0",
+              "text": "Del paciente",
+              "answer": [
+                {
+                  "valueInteger": 310
+                }
+              ]
+            },
+            {
+              "linkId": "/6.0.0.0/6.1.0.0/6.1.2.0",
+              "text": "Del esposo",
+              "answer": [
+                {
+                  "valueInteger": 100
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "linkId": "/6.0.0.0/6.2.0.0",
+          "text": "La familia es beneficiaria de algún programa social",
+          "answer": [
+            {
+              "valueBoolean": true,
+              "item": [
+                {
+                  "linkId": "6.0.0.0/6.2.0.0/6.2.1.0",
+                  "text": "¿Cual Programa?",
+                  "answer": [
+                    {
+                      "valueCoding": {
+                        "system": "Custom",
+                        "code": "6.2.1.3",
+                        "display": "Programa de Vaso de Leche (PVL)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "/7.0.0.0",
+      "text": "Situación de salud",
+      "item": [
+        {
+          "linkId": "/7.0.0.0/7.1.0.0",
+          "text": "Salud familiar",
+          "item": [
+            {
+              "linkId": "/7.0.0.0/7.1.0.0/7.1.1.0",
+              "text": "¿Un miembro de la familia tiene una enfermedad crónica?",
+              "answer": [
+                {
+                  "valueBoolean": true,
+                  "item": [
+                    {
+                      "linkId": "/7.0.0.0/7.1.0.0/7.1.1.0/2.1.0.0",
+                      "text": "Relación con el (la) paciente",
+                      "answer": [
+                        {
+                          "valueString": "abuelo"
+                        }
+                      ]
+                    },
+                    {
+                      "linkId": "/7.0.0.0/7.1.0.0/7.1.1.0/7.1.1.1",
+                      "text": "¿Cuál es su condición de salud crónica?",
+                      "answer": [
+                        {
+                          "valueCoding": {
+                            "system": "Custom",
+                            "code": "7.1.1.2",
+                            "display": "Cancer"
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "linkId": "/8.0.0.0",
+      "text": "Problemas sociales",
+      "item": [
+        {
+          "linkId": "/8.0.0.0/8.1.0.0",
+          "text": "Abandono familiar",
+          "answer": [
+            {
+              "valueBoolean": true
+            }
+          ]
+        },
+        {
+          "linkId": "/8.0.0.0/15167005",
+          "text": "Alcholismo",
+          "answer": [
+            {
+              "valueBoolean": true
+            }
+          ]
+        },
+        {
+          "linkId": "/8.0.0.0/429746005",
+          "text": "Violencia familiar",
+          "answer": [
+            {
+              "valueBoolean": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

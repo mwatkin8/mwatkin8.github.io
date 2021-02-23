@@ -1,0 +1,50 @@
+##gff-version 3
+##sequence-region   1 1 248956422
+#!genome-build Ensembl GRCh38.p12
+#!genome-version GRCh38
+#!genome-date 2013-12
+#!genome-build-accession NCBI:GCA_000001405.27
+#!genebuild-last-updated 2018-07
+1	Ensembl	chromosome	1	248956422	.	.	.	ID=chromosome:1;Alias=CM000663.2,chr1,NC_000001.11
+###
+1	.	biological_region	10469	11240	1.3e+03	.	.	external_name=oe %3D 0.79;logic_name=cpg
+1	.	biological_region	10650	10657	0.999	+	.	logic_name=eponine
+X	.	biological_region	10655	10657	0.999	-	.	logic_name=eponine
+1	.	biological_region	10678	10687	0.999	+	.	logic_name=eponine
+1	.	biological_region	10681	10688	0.999	-	.	logic_name=eponine
+Y	.	biological_region	10707	10716	0.999	+	.	logic_name=eponine
+1	.	biological_region	10708	10718	0.999	-	.	logic_name=eponine
+1	.	biological_region	10735	10747	0.999	-	.	logic_name=eponine
+2	.	biological_region	10737	10744	0.999	+	.	logic_name=eponine
+2	.	biological_region	10766	10773	0.999	+	.	logic_name=eponine
+2	.	biological_region	10770	10779	0.999	-	.	logic_name=eponine
+2	.	biological_region	10796	10801	0.999	+	.	logic_name=eponine
+1	.	biological_region	10810	10819	0.999	-	.	logic_name=eponine
+1	.	biological_region	10870	10872	0.999	+	.	logic_name=eponine
+1	.	biological_region	10889	10893	0.999	-	.	logic_name=eponine
+1	havana	pseudogene	11869	14409	.	+	.	ID=gene:ENSG00000223972;Name=DDX11L1;biotype=transcribed_unprocessed_pseudogene;description=DEAD/H-box helicase 11 like 1 [Source:HGNC Symbol%3BAcc:HGNC:37102];gene_id=ENSG00000223972;logic_name=havana;version=5
+1	havana	lnc_RNA	11869	14409	.	+	.	ID=transcript:ENST00000456328;Parent=gene:ENSG00000223972;Name=DDX11L1-202;biotype=processed_transcript;tag=basic;transcript_id=ENST00000456328;transcript_support_level=1;version=2
+1	havana	exon	11869	12227	.	+	.	Parent=transcript:ENST00000456328;Name=ENSE00002234944;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00002234944;rank=1;version=1
+1	havana	exon	12613	12721	.	+	.	Parent=transcript:ENST00000456328;Name=ENSE00003582793;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003582793;rank=2;version=1
+1	havana	exon	13221	14409	.	+	.	Parent=transcript:ENST00000456328;Name=ENSE00002312635;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00002312635;rank=3;version=1
+1	havana	pseudogenic_transcript	12010	13670	.	+	.	ID=transcript:ENST00000450305;Parent=gene:ENSG00000223972;Name=DDX11L1-201;biotype=transcribed_unprocessed_pseudogene;tag=basic;transcript_id=ENST00000450305;transcript_support_level=NA;version=2
+1	havana	exon	12010	12057	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001948541;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001948541;rank=1;version=1
+1	havana	exon	12179	12227	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001671638;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001671638;rank=2;version=2
+1	havana	exon	12613	12697	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001758273;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001758273;rank=3;version=2
+1	havana	exon	12975	13052	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001799933;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001799933;rank=4;version=2
+1	havana	exon	13221	13374	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001746346;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001746346;rank=5;version=2
+1	havana	exon	13453	13670	.	+	.	Parent=transcript:ENST00000450305;Name=ENSE00001863096;constitutive=0;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001863096;rank=6;version=1
+###
+1	havana	pseudogene	14404	29570	.	-	.	ID=gene:ENSG00000227232;Name=WASH7P;biotype=unprocessed_pseudogene;description=WAS protein family homolog 7%2C pseudogene [Source:HGNC Symbol%3BAcc:HGNC:38034];gene_id=ENSG00000227232;logic_name=havana;version=5
+1	havana	pseudogenic_transcript	14404	29570	.	-	.	ID=transcript:ENST00000488147;Parent=gene:ENSG00000227232;Name=WASH7P-201;biotype=unprocessed_pseudogene;tag=basic;transcript_id=ENST00000488147;transcript_support_level=NA;version=1
+1	havana	exon	14404	14501	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00001843071;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001843071;rank=11;version=1
+1	havana	exon	15005	15038	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00001935574;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001935574;rank=10;version=1
+1	havana	exon	15796	15947	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00002030414;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00002030414;rank=9;version=1
+1	havana	exon	16607	16765	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003621279;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003621279;rank=8;version=1
+1	havana	exon	16858	17055	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003553898;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003553898;rank=7;version=1
+1	havana	exon	17233	17368	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003502542;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003502542;rank=6;version=1
+1	havana	exon	17606	17742	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003475637;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003475637;rank=5;version=1
+1	havana	exon	17915	18061	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003565697;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003565697;rank=4;version=1
+1	havana	exon	18268	18366	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003477500;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003477500;rank=3;version=1
+1	havana	exon	24738	24891	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00003507205;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00003507205;rank=2;version=1
+1	havana	exon	29534	29570	.	-	.	Parent=transcript:ENST00000488147;Name=ENSE00001890219;constitutive=1;ensembl_end_phase=-1;ensembl_phase=-1;exon_id=ENSE00001890219;rank=1;version=1

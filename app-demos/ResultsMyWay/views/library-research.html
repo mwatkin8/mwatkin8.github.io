@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../img/icons/dark-icon.png">
+    <title>ResultsMyWay</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/carousel.css" rel="stylesheet">
+    <link href="../css/dashboard.css" rel="stylesheet">
+</head>
+
+<body onload="loadLibrary('research')">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-md-block bg-light sidebar">
+                <div class="sidebar-sticky">
+                    <div class="text-left">
+                        <img class="ml-2" href="home.html" src="../img/icons/name_icon.png" width="200px" height="17%"/>
+                    </div>
+                <hr>
+
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">
+                            <span data-feather="home"></span>
+                            Home <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="results.html">
+                            <span data-feather="activity"></span>
+                            Results
+                        </a>
+                    </li>
+                </ul>
+
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                    <span>Resources</span>
+                    <!--a class="d-flex align-items-center text-muted" href="#">
+                    <span data-feather="plus-circle"></span>
+                </a-->
+            </h6>
+            <ul class="nav flex-column mb-2">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        <span data-feather="book-open"></span>
+                        Knowledge Library
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">
+                        <span data-feather="users"></span>
+                        Care Team
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="community.html">
+                        <span data-feather="smile"></span>
+                        Community
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="studies.html">
+                        <span data-feather="clipboard"></span>
+                        Clinical Studies
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="account.html">
+                        <span data-feather="settings"></span>
+                        Account Information
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">
+                    <span data-feather="log-out"></span>
+                    Log Out
+                  </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pl-0 pr-0">
+        <div id="myCarousel" class="carousel slide"  data-interval="false" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Knowledge Library</h1>
+                            <br>
+                            <h3>Find and access useful articles from credible sources</h3>
+                            <br><br><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h2>Screening Timeline<br><br><br><br><br><br></h2>
+                        </div>
+                        <div id="timeline"></div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div style="padding-left:20px;padding-right:20px;">
+            <ul class="nav nav-tabs">
+                <li class="nav-item mb-0">
+                    <h5><a class="nav-link" href="library.html">Basic Knowledge</a></h5>
+                </li>
+                <li class="nav-item mb-0">
+                    <h5><a class="nav-link" href="library-nutrition.html">Nutrition</a></h5>
+                </li>
+                <li class="nav-item mb-0">
+                    <h5><a class="nav-link active" href="#">Research</a></h5>
+                </li>
+                <li class="nav-item mb-0">
+                    <h5><a class="nav-link" href="library-media.html">Media</a></h5>
+                </li>
+            </ul>
+            <div class="row border-bottom ">
+                <div id="content-list" class="loading col-md-5"></div>
+                <div class="col-md-7 pt-3 border-left">
+                    <!-- start sw-rss-feed code -->
+                    <!-- start sw-rss-feed code -->
+                    <script type="text/javascript">
+                    <!--
+                    rssfeed_url = new Array();
+                    rssfeed_url[0]="https://pubmed.ncbi.nlm.nih.gov/rss/search/1DYWH3zMZml9Y-GH5h46gjnQXutviZuz-BCA7P5SX1gD_xlsh7/?limit=100&utm_campaign=pubmed-2&fc=20200722104350";
+                    rssfeed_frame_width="700";
+                    rssfeed_frame_height="1000";
+                    rssfeed_scroll="on";
+                    rssfeed_scroll_step="10";
+                    rssfeed_scroll_bar="off";
+                    rssfeed_target="_blank";
+                    rssfeed_font_size="18";
+                    rssfeed_font_face="";
+                    rssfeed_border="on";
+                    rssfeed_css_url="";
+                    rssfeed_title="on";
+                    rssfeed_title_name="";
+                    rssfeed_title_bgcolor="#3366ff";
+                    rssfeed_title_color="#fff";
+                    rssfeed_title_bgimage="";
+                    rssfeed_footer="off";
+                    rssfeed_footer_name="rss feed";
+                    rssfeed_footer_bgcolor="#fff";
+                    rssfeed_footer_color="#333";
+                    rssfeed_footer_bgimage="";
+                    rssfeed_item_title_length="150";
+                    rssfeed_item_title_color="#666";
+                    rssfeed_item_bgcolor="#fff";
+                    rssfeed_item_bgimage="";
+                    rssfeed_item_border_bottom="on";
+                    rssfeed_item_source_icon="off";
+                    rssfeed_item_date="off";
+                    rssfeed_item_description="on";
+                    rssfeed_item_description_length="400";
+                    rssfeed_item_description_color="#666";
+                    rssfeed_item_description_link_color="#333";
+                    rssfeed_item_description_tag="off";
+                    rssfeed_no_items="0";
+                    rssfeed_cache = "e2096e240ecfe5288db75623e6605e66";
+                    //-->
+                    </script>
+                    <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script>
+                </div>
+            </div>
+        </div>
+        <br><br><br><br>
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>&copy; 2020 Eilbeck Lab, Department of Biomedical Informatics, University of Utah | Utah Department of Health &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+    </main>
+</div>
+</div>
+<!-- JS links -->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="../js/script.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script>
+feather.replace()
+</script>
+</body>
+</html>

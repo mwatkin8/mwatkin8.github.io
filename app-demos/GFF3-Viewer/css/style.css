@@ -1,0 +1,289 @@
+html {
+    min-height: 100%;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 200;
+}
+
+.vertical_fill{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.row{
+    flex-direction: row;
+}
+
+.loading{
+    visibility: hidden;
+    background: url('../data/gif.gif') no-repeat center center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.start{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.nav {
+    padding-top: 0px;
+    width:100%;
+    background: #4A555D;
+    padding-bottom: 5px;
+}
+
+.nav_button {
+    padding-left: 5px;
+    position: absolute;
+    bottom:0;
+}
+
+#searchBar {
+  background: url('../data/searchicon.png') no-repeat left;
+    background-position-x: 10px;
+    background-size: 25px 25px;
+  width: 100%;
+  font-size: 14px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.classic {
+    cursor: pointer;
+    padding-left: 1%;
+}
+
+.classic_row:hover {
+    background-color: #F5F5F5;
+}
+
+
+/* Side Bar */
+.side_bar {
+    background-color: whitesmoke;
+    display: inline-block;
+    position: relative;
+    width: 17%;
+    flex-grow: 1;
+}
+
+.classic_row:hover {
+    background-color: #F5F5F5;
+}
+
+
+/* Side Bar */
+.side_bar {
+    background-color: whitesmoke;
+    display: inline-block;
+    position: relative;
+    width: 17%;
+    flex-grow: 1;
+}
+
+.side_content{
+    padding-top:2.5%;
+    padding-bottom: 2.5%;
+    padding-left:5%;
+}
+
+
+table{
+    width:100%;
+}
+
+tr{
+    white-space:pre;
+}
+
+td:hover{
+    opacity: 0.5;
+    cursor:pointer;
+}
+
+
+.featureList_td {
+    text-anchor: middle;
+}
+.featureList_tr{
+    border-bottom: 1px solid lightgray;
+}
+.featureList_tr:hover{
+    background-color: #F5F5F5;
+}
+
+
+h2{
+    text-align: center;
+    margin: 0px;
+    padding-top:20px;
+}
+
+
+.highlight {
+    opacity: 0.5;
+    cursor:pointer;
+}
+
+.row_highlight {
+    background-color: #EAE8E8;
+}
+
+
+
+img{
+    cursor: pointer;
+    display: inline;
+    margin: 0 auto;
+}
+
+/* Main Content */
+.main_content {
+    overflow-y:auto;
+    display: flex;
+    position: relative;
+    width: 82%;
+    padding: 1%;
+    flex-grow: 1;
+}
+
+.source_chart {
+  display: inline-block;
+  width: 40%;
+  padding-right: 1%
+}
+
+.type_chart {
+  /*display: inline-block;*/
+  display: flex;
+  width: 40%;
+  padding-right: 1%
+}
+
+/*
+.tree_chart {
+  display: inline-block;
+  width: 70%;
+  padding-right: 1%
+}
+*/
+
+.return:hover{
+    background-color: #EAE8E8;
+}
+
+
+.bold{
+    font-weight: bold;
+}
+
+#input{
+    stroke:whitesmoke;
+}
+
+.featureList{
+    width: 600px;
+    padding-top: 20px;
+}
+
+.axis text {
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff;
+  font-size: 14px;
+
+}
+
+th{
+    cursor: pointer;
+
+}
+
+.legend text {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.chart_title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.link {
+    fill: none;
+    stroke: rgb(36, 33, 33);
+    stroke-opacity: 0.5;
+    stroke-width: 3px;
+}
+
+/* D3 Tooltip */
+.d3-tip {
+    line-height: 1.5;
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 225px;
+    border-style: groove;
+    padding: 5px;
+    background: #FFFFFF;
+    color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.tooltip-title{
+    font-size:18px;
+    font-family: "Arial Black";
+    text-align: left;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 2;
+    color: rgba(0, 0, 0, 0.8);
+    /* content: "\25BC"; */
+    position: relative;
+    pointer-events: none;
+}
+
+/* Northward tooltips */
+.d3-tip.n:after {
+    /* content: "\25BC"; */
+    margin: -4px 0 0 0;
+    top: 100%;
+    left: 0;
+    /* text-align: center; */
+}
+
+/* Eastward tooltips */
+.d3-tip.e:after { 
+    /* content: "\26A0"; */
+    margin: -4px 0 0 0;
+    top: -800px;
+    left: -8px;
+} 
+
+/* Southward tooltips */
+.d3-tip.s:after {
+    /* content: "\25B2"; */
+    margin: 4px 0 1px 0;
+    top: -8px;
+    left: 1481px;
+    text-align: center;
+} 
+
+/* Westward tooltips */
+.d3-tip.w:after {
+    /* content: "\25B6"; */
+    margin: -4px 0 0 -1px;
+    top: 50%;
+    left: 100%;
+} 

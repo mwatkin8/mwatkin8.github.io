@@ -1,0 +1,42 @@
+{
+    "resourceType": "Condition",
+    "id": "hypothyroxinemia-condition",
+    "clinicalStatus": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/condition-clinical",
+                "code": "active"
+            }
+        ]
+    },
+    "severity": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "24484000",
+                "display": "Severe"
+            }
+        ]
+    },
+    "verificationStatus": {
+        "coding": [
+            {
+                "system": "http://hl7.org/fhir/condition-ver-status",
+                "code": "confirmed"
+            }
+        ]
+    },
+    "code": {
+        "coding": [
+            {
+                "system": "http://snomed.info/sct",
+                "code": "119181000119104",
+                "display": "Hypothyroxinemia of prematurity (disorder)"
+            }
+        ]
+    },
+    "subject": {
+        "reference": "Patient/patient-infant"
+    },
+    "onsetDateTime": "2020-08-18T00:00:00-06:00"
+}
