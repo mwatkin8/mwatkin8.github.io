@@ -9,9 +9,6 @@
     <script src="https://d3js.org/d3.v5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-
-
-
     <link href="css/clusterize.css" rel="stylesheet">
     <script src="js/clusterize.min.js"></script>
 
@@ -21,16 +18,18 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 
-<body class="vertical_fill" onload="initialize()">
+<body class="vertical_fill" onload="handleFile()">
 <div class="loading"></div>
 
 <div class="nav">
     <div style="position:relative;text-align: center;margin: 0px">
         <div class="nav_button" >
-            <input id="classic_button" type="button" value="Classic View" onclick="classicView(this)"/>
-            <input style="margin-left: 50px" accept=".gff3" class="nav_button" type="file" id="input" onchange="handleFile(this.files)">
+            <input style="cursor:pointer"id="classic_button" type="button" value="Classic View" onclick="classicView(this)"/>
+            &nbsp;&nbsp;&nbsp;
+            <input style="padding-top:0px;padding-bottom:0px;border: 1px solid #CCCCCC;border-radius: 6px;background-color: #F8F8F8" type="button" value="Choose file" />
+            <span style="padding-right:20px;color:white" id="fileName">demo.gff3 (locked for demo)</span>
         </div>
-        <img onclick="backToSumnmary()" style="width: 300px;height: 83px;" src="data/gff3_logo.png"/>
+        <img style="width: 300px;height: 83px;" src="data/gff3_logo.png"/>
     </div>
 </div>
 
@@ -86,5 +85,3 @@
 
 </body>
 </html>
-
-

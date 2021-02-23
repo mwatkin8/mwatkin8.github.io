@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/images/u-logo-black.png">
+    <title>VR-Spec Tool Suite</title>
+    <!-- CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="static/js/script.js"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
+  </head>
+
+  <body>
+    <div id="loading" class="loading"><span class="loading_text">Please Wait...</span><span class="loading_sub">This can take longer for large VCF files</span></div>
+    <div id="non-loading" style="height: 100%">
+        <div class="container">
+          <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+              <div class="col-12 text-center">
+                <a class="blog-header-logo text-dark" href="/">VR-Spec Tool Suite (Demo)</a>
+              </div>
+            </div>
+          </header>
+          <div class="nav-scroller py-1 mb-2">
+            <nav class="nav d-flex">
+                    <a class="text-primary p-2" href="#">Overview</a>
+                    <a class="text-muted p-2" href="views/vcf-tool.html">VCF</a>
+                    <a class="text-muted p-2" href="views/hgvs-tool.html">HGVS</a>
+                    <a class="text-muted p-2" href="views/digest-tool.html">Digest</a>
+            </nav>
+          </div>
+        </div>
+
+        <main role="main" class="container">
+            <div class="row">
+              <div class="col-md-8 blog-main">
+                <h3 class="pb-3 mb-4 font-italic border-bottom">
+                  Overview
+                </h3>
+                <div class="blog-post">
+                  <h2 class="blog-post-title">VR Information Model</h2>
+                  <p>
+                      One of the main contributions of the vr-spec is an information model which can be used to represent the components of an instance of variation.
+                      The objects from the information model included in this tool suite are:
+                      <ul>
+                          <li><i>Sequence</i> - a string, constrained to contain only characters representing IUPAC nucleic acid or amino acid codes.</li>
+                          <li><i>SimpleInterval</i> - a range on a Sequence with a single start and end coordinate, possibly with length zero, and specified using <a href="https://vr-spec.readthedocs.io/en/1.0/appendices/design_decisions.html#interbase-coordinates-design">Interbase Coordinates</a>.</li>
+                          <li><i>SequenceLocation</i> - a contiguous segment of a biological sequence, defined with an Interval and a Sequence.</li>
+                          <li><i>SequenceState</i> - a “ref-alt” style variation, including SNVs, MNVs, del, ins, and delins.</li>
+                          <li><i>Allele</i> - a State found at a Location.</li>
+                      </ul>
+                      These models build upon one another to provide a fully scoped representation of the instance of variation. The following <a href="https://vr-spec.readthedocs.io/en/1.0/impl-guide/example.html">example</a> comes from the specification.
+                      <br><br>
+                      <img class="info-model" src="static/images/info-model.png">
+                      <br><br>
+                      They are also used to generate computed identifiers (<i>shown below</i>).
+                  </p>
+                  <hr>
+                  <h2 class="blog-post-title">VR Computed Identifiers</h2>
+                  <p>The following description comes from the <a href="https://vr-spec.readthedocs.io/en/1.0/impl-guide/computed_identifiers.html">specification</a>.</p>
+                  <blockquote>
+                      <p style="padding-left:5px;">
+                          The VR-Spec provides an algorithmic solution to deterministically generate a globally unique identifier from a VR object itself. All valid implementations of the VR Computed Identifier will generate the same identifier when the objects are identical, and will generate different identifiers when they are not. The <a href="https://vr-spec.readthedocs.io/en/1.0/impl-guide/computed_identifiers.html#truncated-digest-sha512t24u">VR Computed Digest algorithm</a> obviates centralized registration services, allows computational pipelines to generate “private” ids efficiently, and makes it easier for distributed groups to share data.
+                      </p>
+                  </blockquote>
+                  <p>Continuation of the <a href="https://vr-spec.readthedocs.io/en/1.0/impl-guide/example.html">example</a> from the specification.</p>
+                  <img class="vr-digest-flow" src="static/images/vr-digest-flow.png"/><br><br>
+                  <p>These computed identifiers together serve as a globally unique way to represent an instance of variation. They can be used to reliably exchange relevant annotations and other associated variantion knowledge artifacts.</p>
+                </div><!-- /.blog-post -->
+              </div><!-- /.blog-main -->
+              <aside class="col-md-4 blog-sidebar">
+                <div class="p-3 mb-3 bg-light rounded">
+                  <h4 class="font-italic">About</h4>
+                  <p class="mb-0">The GA4GH Variation Representation Specification (<a href="https://vr-spec.readthedocs.io/en/1.0/index.html">vr-spec</a>) is an open specification to standardize the exchange of variation data</p>
+                </div>
+                <div class="p-3">
+                  <h4 class="font-italic">Links</h4>
+                  <ol class="list-unstyled mb-0">
+                      <li><a href="https://vr-spec.readthedocs.io/en/1.0/introduction.html">Introduction</a></li>
+                    <li><a href="https://vr-spec.readthedocs.io/en/1.0/terms_and_model.html">Terminology & Information Model</a></li>
+                    <li><a href="https://vr-spec.readthedocs.io/en/1.0/schema.html">Schema</a></li>
+                    <li><a href="https://github.com/ga4gh/vr-spec">VR-Spec Repository</a></li>
+                    <li><a href="#">Tool Suite Repository</a></li>
+                  </ol>
+                </div>
+              </aside><!-- /.blog-sidebar -->
+            </div>
+        </main><!-- /.container -->
+    </div>
+    <footer class="blog-footer" style="padding-top:20px;padding-bottom:20px;">
+      <p>University of Utah - Department of Biomedical Informatics - <a href="http://eilbeck-lab.topaz.genetics.utah.edu/">Eilbeck Lab</a></p>
+    </footer>
+
+    <script>
+    feather.replace()
+</script>
+  </body>
+
+</html>

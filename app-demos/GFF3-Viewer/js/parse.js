@@ -267,30 +267,16 @@ function checkNS(val){
 /**
  * Reads the file from the HTML page
  *
- * @param e
  */
-function readSingleFile(e) {
-    let file = e[0];
-    if (!file) {
-       initialize();
-        return;
-    }
-    let reader = new FileReader();
-    reader.onload = function(e) {
-        let contents = e.target.result;
-        parseContent(contents);
-        global_gff3.display_sideBar();
-        global_gff3.display_sourceChart();
-        global_gff3.display_typeChart();
-    };
-    reader.onloadstart = function(){
-        d3.select('.initial').remove();
-        d3.select('.loading').style('visibility','visible');
-    };
-    reader.onloadend = function() {
-        d3.select('.loading').style('visibility','hidden');
-    };
-    reader.readAsText(file);
+async function readSingleFile() {
+    d3.select('.loading').style('visibility','visible');
+    let r = await fetch('data/GFF3_files/demo.gff3');
+    let contents = await r.text();
+    parseContent(contents);
+    global_gff3.display_sideBar();
+    global_gff3.display_sourceChart();
+    global_gff3.display_typeChart();
+    d3.select('.loading').style('visibility','hidden');
 }
 
 /**
@@ -428,7 +414,7 @@ function parseContent(contents) {
                 else{
                     features_type[type] = [f]
                 }
-                
+
                 try {
                     buildTreeData(d, f);
                 }
@@ -482,43 +468,17 @@ function classicView(e){
 
 /**
  * Handles the file change event by initializing objects and views and calling readSingleFile()
- * @param file
  */
-function handleFile(file){
-    if(global_gff3 !== null || file.length === '0'){
+function handleFile(){
+    if(global_gff3 !== null){
         global_gff3.sideBar.removeBar();
         global_gff3.detailView.removeView();
         global_gff3.sourceChart.removeChart();
         global_gff3.typeChart.removeChart();
         global_gff3.featureList.removeList();
-        readSingleFile(file);
+        readSingleFile();
     } else {
         global_gff3 = new GFF3_File();
-        readSingleFile(file);
+        readSingleFile();
     }
-}
-
-/**
- * Provides landing content for page including video and explanation of the tool.
- *
- */
-function initialize(){
-    let initial = d3.select('.main_content').append('div').classed('initial',true).style('padding','10px');
-
-    initial.append('p').text('This viewer is designed to provide users with a high-level overview of valid GFF3 files. ' +
-        'The specification for GFF3 files can be found ')
-        .append('a').attr('href','https://github.com/The-Sequence-Ontology/Specifications/blob/master/gff3.md')
-        .text('here');
-
-    initial.append('p').text('Upload a file to begin analysis.');
-
-    initial.append('p').text('A detailed video tutorial can be found below');
-    initial.append('iframe')
-        .attr('width','420')
-        .attr('height','315')
-        .attr('src','https://www.youtube.com/embed/IZTRyp9nVXI');
-
-
-    initial.append('p').text('A design process document can be found ')
-        .append('a').attr('href','../Process_Book.pdf').text('here');
 }

@@ -2,6 +2,10 @@ html {
     min-height: 100%;
 }
 
+body{
+    margin:0;
+}
+
 h2 {
     font-weight: bold;
     font-size: 200;
@@ -264,12 +268,12 @@ th{
 }
 
 /* Eastward tooltips */
-.d3-tip.e:after { 
+.d3-tip.e:after {
     /* content: "\26A0"; */
     margin: -4px 0 0 0;
     top: -800px;
     left: -8px;
-} 
+}
 
 /* Southward tooltips */
 .d3-tip.s:after {
@@ -278,7 +282,7 @@ th{
     top: -8px;
     left: 1481px;
     text-align: center;
-} 
+}
 
 /* Westward tooltips */
 .d3-tip.w:after {
@@ -286,4 +290,4 @@ th{
     margin: -4px 0 0 -1px;
     top: 50%;
     left: 100%;
-} 
+}

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../static/images/u-logo-black.png">
+    <title>VR-Spec Tool Suite</title>
+    <!-- CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="../static/js/script.js"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
+  </head>
+
+  <body>
+    <div id="loading" class="loading"><span class="loading_text">Please Wait...</span><span class="loading_sub">This can take longer for large VCF files</span></div>
+    <div id="non-loading" style="height: 100%">
+        <div class="container">
+          <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+              <div class="col-12 text-center">
+                <a class="blog-header-logo text-dark" href="/">VR-Spec Tool Suite</a>
+              </div>
+            </div>
+          </header>
+          <div class="nav-scroller py-1 mb-2">
+            <nav class="nav d-flex">
+                    <a class="text-muted p-2" href="../index.html">Overview</a>
+                    <a class="text-muted p-2" href="vcf-tool.html">VCF</a>
+                    <a class="text-muted p-2" href="hgvs-tool.html">HGVS</a>
+                    <a class="text-primary p-2" href="#">Digest</a>
+            </nav>
+          </div>
+        </div>
+
+        <main role="main" class="container">
+<div class="row">
+  <div class="col-md-10 blog-main">
+    <h3 class="pb-3 mb-4 font-italic border-bottom">
+      Digest Tool
+    </h3>
+    <div class="blog-post">
+      <h2 class="blog-post-title">Use the VR Digest Algorithm for custom variants</h2>
+      <p>
+          This tool will generate a VR Allele object to which represents the variant described in the fields below.
+          This object will be available in its JSON representation, as described in the <a href="/">Overview</a> section of this tool suite. Each identifier will also be available.
+      </p>
+
+            (locked for demo)
+          <div class="row">
+              <div class="col-md-2">
+                  <select name="build" style="width:120px;font-size:80%;">
+                      <option selected="selected" value="GRCh37">GRCh37</option>
+                      <option value="GRCh38">GRCh38</option>
+                  </select>
+                  <select name="chr" style="width:120px;font-size:80%;">
+                      <option selected="selected" value="1">Chr 1</option>
+                      <option value="2">Chr 2</option>
+                      <option value="3">Chr 3</option>
+                      <option value="4">Chr 4</option>
+                      <option value="5">Chr 5</option>
+                      <option value="6">Chr 6</option>
+                      <option value="7">Chr 7</option>
+                      <option value="8">Chr 8</option>
+                      <option value="9">Chr 9</option>
+                      <option value="10">Chr 10</option>
+                      <option value="11">Chr 11</option>
+                      <option value="12">Chr 12</option>
+                      <option value="13">Chr 13</option>
+                      <option value="14">Chr 14</option>
+                      <option value="15">Chr 15</option>
+                      <option value="16">Chr 16</option>
+                      <option value="17">Chr 17</option>
+                      <option value="18">Chr 18</option>
+                      <option value="19">Chr 19</option>
+                      <option value="20">Chr 20</option>
+                      <option value="21">Chr 21</option>
+                      <option value="22">Chr 22</option>
+                      <option value="X">Chr X</option>
+                      <option value="Y">Chr Y</option>
+                  </select>
+              </div>
+              <div class="col-md-2">
+                  <div class="form-group">
+                      <input type="text" class="form-control" name="start" value="1" readonly>
+                      <small class="form-text text-muted">Start Position</small>
+                  </div>
+              </div>
+              <div class="col-md-2">
+                  <div class="form-group">
+                      <input type="text" class="form-control" name="end" value="2" readonly>
+                      <small class="form-text text-muted">End Position</small>
+                  </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="form-group">
+                      <input type="text" class="form-control" name="state" value="G>T" readonly>
+                      <small class="form-text text-muted">Allele State</small>
+                  </div>
+              </div>
+              <div class="col-md-2" style="padding-right:0;">
+                  <p class="pointer text-muted">
+                      <button class="btn btn-primary" onclick="digest();">Execute</button>
+                  </p>
+              </div>
+          </div>
+          <div class="row">
+                <div class="col-md-6" style="padding-top:5px;">
+                    <input id="sq" type="text" class="form-control" name="sq" value="">
+                    <small class="form-text text-muted">Sequence Identifier</small>
+                </div>
+                <div class="col-md-2">
+                  <nav class="blog-pagination" style="margin-bottom:0px;">
+                      <button class="btn btn-outline-primary" onclick="copy('sq')"><span data-feather="clipboard"></span></button>
+                  </nav>
+                </div>
+          </div>
+          <div class="row">
+                <div class="col-md-6" style="padding-top:5px;">
+                    <input id="vsl" type="text" class="form-control" name="vsl" value="">
+                    <small class="form-text text-muted">Location Identifier</small>
+                </div>
+                <div class="col-md-2">
+                  <nav class="blog-pagination" style="margin-bottom:0px;">
+                      <button class="btn btn-outline-primary" onclick="copy('vsl')"><span data-feather="clipboard"></span></button>
+                  </nav>
+                </div>
+          </div>
+          <div class="row">
+                <div class="col-md-6" style="padding-top:5px;">
+                    <input id="va" type="text" class="form-control" name="va" value="">
+                    <small class="form-text text-muted">Allele Identifier</small>
+                </div>
+                <div class="col-md-2">
+                  <nav class="blog-pagination" style="margin-bottom:0px;">
+                      <button class="btn btn-outline-primary" onclick="copy('va')"><span data-feather="clipboard"></span></button>
+                  </nav>
+                </div>
+          </div>
+
+
+      <div class="row">
+          <!--Display area for transformed VCF file-->
+          <div class="bg-light col-md-10" style="overflow:scroll;height:300px;">
+              <pre id="vr_model" style="padding:20px;"></pre>
+          </div>
+          <div class="col-md-2">
+            <nav class="blog-pagination" style="padding-top:10px;">
+                <button class="btn btn-outline-primary" onclick="copy('vr_model')"><span data-feather="clipboard"></span></button>
+            </nav>
+          </div>
+
+      </div>
+
+
+
+        </div><!-- /.blog-post -->
+      </div><!-- /.blog-main -->
+      <!-- /.blog-sidebar -->
+    </div><!-- /.row -->
+    </div><!-- /.row -->
+    <footer class="blog-footer" style="padding-top:20px;padding-bottom:20px;">
+    <p>University of Utah - Department of Biomedical Informatics - <a href="http://eilbeck-lab.topaz.genetics.utah.edu/">Eilbeck Lab</a></p>
+    </footer>
+
+    <script>
+    feather.replace()
+    </script>
+    </body>
+
+</html>
