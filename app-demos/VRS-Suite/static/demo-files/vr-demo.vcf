@@ -1,0 +1,35 @@
+##fileformat=VCFv4.1
+##INFO=<ID=LDAF,Number=1,Type=Float,Description="MLE Allele Frequency Accounting for LD">
+##INFO=<ID=AVGPOST,Number=1,Type=Float,Description="Average posterior probability from MaCH/Thunder">
+##INFO=<ID=RSQ,Number=1,Type=Float,Description="Genotype imputation quality from MaCH/Thunder">
+##INFO=<ID=ERATE,Number=1,Type=Float,Description="Per-marker Mutation rate from MaCH/Thunder">
+##INFO=<ID=THETA,Number=1,Type=Float,Description="Per-marker Transition rate from MaCH/Thunder">
+##INFO=<ID=CIEND,Number=2,Type=Integer,Description="Confidence interval around END for imprecise variants">
+##INFO=<ID=CIPOS,Number=2,Type=Integer,Description="Confidence interval around POS for imprecise variants">
+##INFO=<ID=END,Number=1,Type=Integer,Description="End position of the variant described in this record">
+##INFO=<ID=HOMLEN,Number=.,Type=Integer,Description="Length of base pair identical micro-homology at event breakpoints">
+##INFO=<ID=HOMSEQ,Number=.,Type=String,Description="Sequence of base pair identical micro-homology at event breakpoints">
+##INFO=<ID=SVLEN,Number=1,Type=Integer,Description="Difference in length between REF and ALT alleles">
+##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of structural variant">
+##INFO=<ID=AC,Number=.,Type=Integer,Description="Alternate Allele Count">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total Allele Count">
+##ALT=<ID=DEL,Description="Deletion">
+##reference=GRCh37
+##INFO=<ID=VRS_SQ,Number=1,Type=String,Description="VRS Sequence identifier">
+##INFO=<ID=VRS_VSL,Number=1,Type=String,Description="VRS Sequence Location identifier">
+##INFO=<ID=VRS_VA,Number=1,Type=String,Description="VRS Allele identifier">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+17	302	rs35998167	T	TA	1005	PASS	AA=T;AC=2;AF=0.77;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.1I_3RqKjRxTG-B52Ut6OLUdjeV-POmnZ;VRS_VA=ga4gh:VA.cFFIF542PsQAoiEXPjTlLjbFozKFeAFv17	302	rs35998167	T	TA	1005	PASS	AA=T;AC=2;AF=0.77
+17	828	rs62053745	T	C	100	PASS	AA=T;AC=2;AF=0.76;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.8-LAVLL69oLAzcqGxz1MV0XjuyR8ecBG;VRS_VA=ga4gh:VA.wf5xTEvosWMVXN3PQRzyvND2fQna8fZL17	828	rs62053745	T	C	100	PASS	AA=T;AC=2;AF=0.76
+17	834	rs9747082	G	A	100	PASS	AA=A;AC=2;AF=0.82;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.zaJdKDGOc4znXSDcQtv8UZAIZuE_Letg;VRS_VA=ga4gh:VA.6pew8IesP91ukPF5JBsNrLQigKhIJ84A17	834	rs9747082	G	A	100	PASS	AA=A;AC=2;AF=0.82
+17	1869	rs62053748	A	T	100	PASS	AA=A;AC=2;AF=0.86;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.kugh32jbR2O7PcZq3quHnEZZUhTA0COr;VRS_VA=ga4gh:VA.GRWYnz8uggMtzMLkkw9p81ZP9GQaTcvl17	1869	rs62053748	A	T	100	PASS	AA=A;AC=2;AF=0.86
+17	2041	rs35054424	G	A	100	PASS	AA=T;AC=2;AF=0.82;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL._hv9SL69cU6UbE_NRdgoO97rGpW1W6l1;VRS_VA=ga4gh:VA.6Bytx9XyFt7jqYpt1ITPN-ZJpFHqmk5J17	2041	rs35054424	G	A	100	PASS	AA=T;AC=2;AF=0.82
+17	2220	rs17055023	G	A	100	PASS	AA=A;AC=2;AF=0.82;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.0kUGpnirNhA5T4Tf9DUFdLafK6fSut2_;VRS_VA=ga4gh:VA.Xk99S6m_yHoOj8mdv0D_d9uZmAeg56CR17	2220	rs17055023	G	A	100	PASS	AA=A;AC=2;AF=0.82
+17	2564	rs34245596	A	G	100	PASS	AA=A;AC=2;AF=0.76;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.GTHog-vRbh7SfElkldmb1qQ9_GJ9TcJO;VRS_VA=ga4gh:VA.IWV3CUQSKKvXP2qms9c_36wdaBtkcID717	2564	rs34245596	A	G	100	PASS	AA=A;AC=2;AF=0.76
+17	3587	rs8069278	G	A	100	PASS	AA=G;AC=2;AF=0.75;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.Uxbc5NwZmzE0HWLX5j3DwZV1HnEMgXKE;VRS_VA=ga4gh:VA.3NXoz7Y8MDuh2f1HQ_fKE007zuTmcnhj17	3587	rs8069278	G	A	100	PASS	AA=G;AC=2;AF=0.75
+17	3936	rs7213004	A	G	100	PASS	AA=A;AC=2;AF=0.78;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.eaLJIpV98L0q2QtnpunCBbd72roOV_Hi;VRS_VA=ga4gh:VA.Hsh-98EwaspEK_pWblsggsJaSGNfrBbY17	3936	rs7213004	A	G	100	PASS	AA=A;AC=2;AF=0.78
+17	4966	rs2223138	A	G	100	PASS	AA=g;AC=2;AF=0.82;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.DzMfjb1uZVa7SMNcvNkz5YsM8RYh-Og6;VRS_VA=ga4gh:VA.U_kRHvwgvQBao-hlWG9JyIunxn2Wgc_317	4966	rs2223138	A	G	100	PASS	AA=g;AC=2;AF=0.82
+17	5522	rs71143471	A	AGT	1217	PASS	AA=.;AC=2;AF=1.00;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.wNYZ8G-UpTyp3QFpi4E8IIp2vik2Azf6;VRS_VA=ga4gh:VA.niEC6ocAqtIQciSm9dT2OBGvhXnC_viF17	5522	rs71143471	A	AGT	1217	PASS	AA=.;AC=2;AF=1.00
+17	5523	.	G	GTC	567	PASS	AA=GTC;AC=2;AF=0.99;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.-VI4Uwc_rGHb-kVS1t4zl-s3VAwlRd6h;VRS_VA=ga4gh:VA.TmEW2zyCv7YhPGSXAstFZ847aIiBQ8pa17	5523	.	G	GTC	567	PASS	AA=GTC;AC=2;AF=0.99
+17	5687	rs4890175	C	T	100	PASS	AA=C;AC=1;AF=0.72;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.xjUr6O3VeeUMkub9-Wuv-tHl0EphICND;VRS_VA=ga4gh:VA.5Ue90Q0fZcDAtODs-j8II8AWpZJ11XQR17	5687	rs4890175	C	T	100	PASS	AA=C;AC=1;AF=0.72
+17	6115	rs61739713	G	C	100	PASS	AA=G;AC=1;AF=0.74;VRS_SQ=ga4gh:SQ.AjWXsI7AkTK35XW9pgd3UbjpC3MAevlz;VRS_VSL=ga4gh:VSL.9HA1I8CD7k_f4NnL81rNNIORsxDkmxSD;VRS_VA=ga4gh:VA.gV5gZI1b8hqGhhXZYHGfKn-kBcmyXusc17	6115	rs61739713	G	C	100	PASS	AA=G;AC=1;AF=0.74

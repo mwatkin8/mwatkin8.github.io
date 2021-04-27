@@ -26,7 +26,8 @@
                         <div style="padding-top:50px;padding-bottom:0px;padding-left:15px;margin-left:15px;"class="content">
 							<h1 style="display:inline;">Michael Watkins<h2 style="display:inline;"></h2></h1>
 							<p style="margin-bottom:10px"class="major">translational informatics, clinical interoperability, clinical decision support</p>
-							<ul class="actions stacked">
+							<ul class="actions">
+                                <li><a class="button small">PDF</a></li>
 								<li><a id="toggleButton" onclick="toggleInterests()" class="button small">Read More</a></li>
 							</ul>
 						</div>
@@ -134,7 +135,11 @@
                             <header>
                                 <p style="margin-bottom:0;padding-top:15px">Front-End Programming</p>
                             </header>
-                            HTML/CSS, D3, Angular
+                            HTML/CSS, D3
+                            <header>
+                                <p style="margin-bottom:0;padding-top:15px">Application Architecture</p>
+                            </header>
+                            ExpressJS, NodeJS, Flask
                             <header>
                                 <p style="margin-bottom:0;padding-top:15px">Clinical Data Standards and Terminologies</p>
                             </header>
@@ -146,7 +151,7 @@
                             <header>
                                 <p style="margin-bottom:0;padding-top:15px">Genomics</p>
                             </header>
-                            FHIR Genomics Reporting IG, HGVS, GA4GH VR-spec, VCF, GFF3, ClinVar, PharmGKB
+                            FHIR Genomics Reporting IG, HGVS, GA4GH VRS, VCF, GFF3, ClinVar, PharmGKB
                             <header>
                                 <p style="margin-bottom:0;padding-top:15px">Analytics</p>
                             </header>
@@ -166,6 +171,16 @@
 
                         <!-- Gallery -->
                             <div class="gallery style2 big lightbox">
+                                <article>
+                                    <a href="app-demos/LocalVar/index.html" target="_blank" class="image">
+                                        <img src="images/gallery/localvar.png" alt="" />
+                                    </a>
+                                    <div class="caption">
+                                        <h3>LocalVar</h3>
+                                        <p>A local variant collection manger to asynchronously detect synonyms, HGVS expression changes, and variant interpretation changes from ClinVar.</p>
+                                        <a href="https://github.com/mwatkin8/LocalVar" target="_blank"><i class="fab fa-github"></i> View on Github</a>
+                                    </div>
+                                </article>
                                 <article>
                                     <a href="app-demos/Determinantes-Sociales/index.html" target="_blank" class="image">
                                         <img src="images/gallery/determinantes.png" alt="" />
@@ -197,12 +212,12 @@
                                     </div>
                                 </article>
                                 <article>
-                                    <a href="app-demos/VR-Suite/index.html" target="_blank" class="image">
-                                        <img src="images/gallery/vrsuite.png" alt="" />
+                                    <a href="app-demos/VRS-Suite/index.html" target="_blank" class="image">
+                                        <img src="images/gallery/vrssuite.png" alt="" />
                                     </a>
                                     <div class="caption">
-                                        <h3>VR-Spec Tool Suite</h3>
-                                        <p>Three web tools that implement the <a href="https://vrs.ga4gh.org/en/1.1/introduction.html">GA4GH Variant Representation Specification</a> (VR-Spec). The first adds VR identifiers to a VCF file, the second converts an HGVS expression to VR identifiers, and the third allows input fields to create VR identifiers for a custom variant.</p>
+                                        <h3>VRS Tool Suite</h3>
+                                        <p>Three web tools that implement the <a href="https://vrs.ga4gh.org/en/1.1/introduction.html">GA4GH Variant Representation Specification</a> (VRS). The first adds VRS identifiers to a VCF file, the second converts an HGVS expression to VRS identifiers, and the third allows input fields to create VRS identifiers for a custom variant.</p>
                                         <a href="https://github.com/mwatkin8/VR-spec-tools" target="_blank"><i class="fab fa-github"></i> View on Github</a>
                                     </div>
                                 </article>
@@ -293,7 +308,8 @@
                             <header>
                                 <p style="padding-top:15px;margin-bottom:0">MCG Health</p>
                             </header>
-                            2020-07-20, 3 hour virtual technical training, 'Introduction to CQL' for a development team of 15-20 employees.
+                            2021-04, 3 hour virtual training, 'HL7® FHIR® 101 for Developers​', given for 3 separate development teams of 20 employees each (9 total hours, 60 total participants).
+                            <br />2020-07-20, 3 hour virtual technical training, 'Introduction to CQL' for a development team of 15-20 employees.
                             <br />2020-06-22, 3 hour virtual technical training, 'SMART on FHIR and CDS Hooks' for a development team of 15-20 employees.
                             <header>
                                 <p style="padding-top:15px;margin-bottom:0">GigaTECH</p>
@@ -334,25 +350,28 @@
                             <h2 style="margin-bottom:9px">Publications</h2>
                             <ol>
                                 <li>
-                                     <b>Watkins M</b>, Rasmussen L, Williams M, Walton N, Johnson D, Overby Taylor C, Freimuth B, Connolly J, Heale B, Del Fiol G. 'Classification of clinical genomic information needs', Manuscript in preparation.
+                                     <b>Watkins M</b>, Kohlmann W, Berry T, Santuci K, Koptiuch C, Rynearson S, Eilbeck K. 'LocalVar: a local variant collection manger to asynchronously detect synonyms, HGVS expression changes, and variant interpretation changes from ClinVar', Manuscript in preparation.
+                                </li>
+                                <li>
+                                     <b>Watkins M</b>, Rasmussen L, Williams M, Walton N, Johnson D, Overby Taylor C, Freimuth B, Connolly J, Heale B, Nielsen K, Del Fiol G. 'Classification of clinical genomic information needs with a taxonomy of clinical questions', Manuscript in preparation.
                                 </li>
                                 <li>
                                     <b>Watkins M</b>, Au A, Vuong T, Wallis H, Hart K, Rohrwasser A, Eilbeck K. 'ResultsMyWay: combining FHIR, Clinical Quality Language (CQL), and informational resources to create a newborn screening application', AMIA 2021 Virtual Informatics Summit, Virtual Conference, 22-25 March 2021.
                                 </li>
                                 <li>
-                                    Silva-Valencia J, Escobar-Agreda S, Viernes B, <b>Watkins M</b>, Rojas-Mezarina L, Nguyen V, Espinoza- Herrera H, Borbolla D. 'Documentation of Social Determinants of Health in Healthcare Organizations in Perú: A field study to inform the development of a FHIR app', AMIA 2020 Annual Symposium, Virtual Conference,14-18 November 2020.
+                                    Silva-Valencia J, Escobar-Agreda S, Viernes B, <b>Watkins M</b>, Rojas-Mezarina L, Nguyen V, Espinoza- Herrera H, Borbolla D. 'Documentation of Social Determinants of Health in Healthcare Organizations in Perú: A field study to inform the development of a FHIR app', AMIA 2020 Annual Symposium, Virtual Conference, 14-18 November 2020.
                                 </li>
                                 <li>
-                                    <b>Watkins M</b>, Viernes B, Nguyen V, Rojas Mezarina L, Silva Valencia J, Borbolla D. 'Translating social determinants of health into standardized clinical entities', Medical Informatics Europe 2020, Geneva, 28 April-1 May 2020.
-                                    <br /><a href="https://pubmed.ncbi.nlm.nih.gov/32570429/"><i>PMID: 32570429</i></a>
+                                    <b>Watkins M</b>, Viernes B, Nguyen V, Rojas Mezarina L, Silva Valencia J, Borbolla D. 'Translating social determinants of health into standardized clinical entities', <i>Stud Health Technol Inform.</i> 2020 Jun 16;270:474-478. doi: 10.3233/SHTI200205.
+                                     <a href="https://pubmed.ncbi.nlm.nih.gov/32570429/"><i>PMID: 32570429</i></a>
                                 </li>
                                 <li>
-                                    <b>Watkins M</b>, Eilbeck K. 'FHIR Lab Reports: using SMART on FHIR and CDS Hooks to increase the clinical utility of pharmacogenomic laboratory test results', AMIA 2020 Informatics Summit, Virtual Conference, 23-26 March 2020.
-                                    <br /><a href="https://pubmed.ncbi.nlm.nih.gov/32477691/"><i>PMID: 32477691</i></a>
+                                    <b>Watkins M</b>, Eilbeck K. 'FHIR Lab Reports: using SMART on FHIR and CDS Hooks to increase the clinical utility of pharmacogenomic laboratory test results', <i>AMIA Jt Summits Transl Sci Proc.</i> 2020 May 30;2020:683-692.
+                                     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7233102/"><i>PMC7233102</i></a>
                                 </li>
                                 <li>
-                                    <b>Watkins M</b>, Rynearson S, Henrie A, Eilbeck K. 'Implementing the VMC specification to reduce ambiguity in genomic variant representation', AMIA 2019 Annual Symposium, Washington D.C., 16-20 November 2019.
-                                    <br /><a href="https://pubmed.ncbi.nlm.nih.gov/32308920"><i>PMID: 32308920</i></a>
+                                    <b>Watkins M</b>, Rynearson S, Henrie A, Eilbeck K. 'Implementing the VMC specification to reduce ambiguity in genomic variant representation', <i>AMIA Annu Symp Proc.</i> 2020 Mar 4;2019:1226-1235.
+                                     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7153148/"><i>PMC7153148</i></a>
                                 </li>
                                 <li>
                                     <b>Watkins M</b>, Fujimoto MS, Clement M. 'A Simplified Framework for Neural Networks', Biotechnology and Bioinformatics Symposium, Provo, Utah, 8-9 December 2016.

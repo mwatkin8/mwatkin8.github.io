@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../static/images/u-logo-black.png">
+    <title>VRS Tool Suite</title>
+    <!-- CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="../static/js/script.js"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
+  </head>
+
+  <body>
+      <div id="modal" class="modal">
+          <!-- The modal content -->
+          <div class="modal-content"><h4>Explore Results (demo only) <button style="float:right;"class="btn btn-primary" onclick="return closeModal()">Close</button></h4>
+              <ul class="nav nav-tabs">
+                  <li style="cursor:pointer" class="nav-item">
+                    <a id="vr-vcf" class="nav-link active" onclick="vr_vcf()">Enriched VCF</a>
+                  </li>
+                  <li style="cursor:pointer" class="nav-item">
+                    <a id="vr-json" class="nav-link" onclick="vr_json()">VRS Data Models</a>
+                  </li>
+                  <li style="cursor:pointer" class="nav-item">
+                    <a id="demo-vcf" class="nav-link" onclick="demoVCF()">Original VCF</a>
+                  </li>
+                </ul>
+              <pre id="modal-pre"></pre>
+          </div>
+      </div>
+    <div id="loading" class="loading"><span class="loading_text">Please Wait...</span><span class="loading_sub">This can take longer for large VCF files</span></div>
+    <div id="non-loading" style="height: 100%">
+        <div class="container">
+          <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+              <div class="col-12 text-center">
+                <a class="blog-header-logo text-dark" href="/">VRS Tool Suite</a>
+              </div>
+            </div>
+          </header>
+          <div class="nav-scroller py-1 mb-2">
+            <nav class="nav d-flex">
+                    <a class="text-muted p-2" href="../index.html">Overview</a>
+                    <a class="text-primary p-2" href="#">VCF</a>
+                    <a class="text-muted p-2" href="hgvs-tool.html">HGVS</a>
+                    <a class="text-muted p-2" href="digest-tool.html">Digest</a>
+            </nav>
+          </div>
+        </div>
+
+        <main role="main" class="container">
+            <div class="row">
+              <div class="col-md-10 blog-main">
+                <h3 class="pb-3 mb-4 font-italic border-bottom">
+                  VCF Tool
+                </h3>
+                <div class="blog-post">
+                  <h2 class="blog-post-title">Add VRS Identifiers to a VCF File</h2>
+                  <p>
+                      This tool will create VRS information models for each entry in a user-uploaded VCF file.
+                      These information models will then be run through the VRS digest algorithm to create globally
+                      unique  <a href="https://vr-spec.readthedocs.io/en/1.0/impl-guide/computed_identifiers.html">identifiers</a> to represent each entry.
+                      The following identifiers will be inserted into the INFO field of each entry.
+                  </p>
+                  <ul style="list-style:none;">
+                    <li>SQ - a Sequence identifier uniquely represents the reference sequence on which the variation is located.</li>
+                    <li>VSL - a SequenceLocation identifier uniquely represents the specific location on the specific reference sequence on which the variation is located.</li>
+                    <li>VA - an Allele identifier uniquely represents a specific variation at a specific location.</li>
+                  </ul>
+
+                  The following descriptors will also be added to the meta-information section of the file.
+                  <aside class="mb-3 col-md-12" style="padding-left:0px;">
+                    <div class="p-3  bg-light rounded">
+                        <code>
+                            ##INFO=&lt;ID=VRS_SQ,Number=1,Type=String,Description="VRS Sequence identifier"&gt;<br>
+                          &nbsp;##INFO=&lt;ID=VRS_VSL,Number=1,Type=String,Description="VRS Sequence Location identifier"&gt;<br>
+                          &nbsp;##INFO=&lt;ID=VRS_VA,Number=1,Type=String,Description="VRS Allele identifier"&gt;
+                      </code>
+                    </div>
+                  </aside>
+                  <p>Upon completion, the enriched VCF will be available for download as well as a JSON file of the VRS allele models created for each entry.</p>
+
+                  <small id="fileHelp" class="form-text text-muted">Upload your VCF file (locked for demo)</small>
+                  <div style="font-size:80%;" class="form-group">
+
+                      <input style="padding-top:0px;padding-bottom:0px;border: 1px solid #CCCCCC;border-radius: 6px;background-color: #F8F8F8" type="button" value="Choose file" />
+                      <span style="padding-right:20px" id="fileName">demo.vcf</span>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-md-2" style="padding-right:0;">
+                          <p class="pointer text-muted">
+                              <button class="btn btn-primary" onclick="openModal();" >Add identifiers</button>
+                          </p>
+                      </div>
+                      <div class="col-md-2" style="padding-left:0;padding-top:5px;">
+                          <select name="build" style="width:120px;font-size:80%;">
+                              <option selected="selected" value="GRCh37">GRCh37</option>
+                              <option value="GRCh38">GRCh38</option>
+                          </select>
+                      </div>
+                  </div>
+
+                  <p>Please ensure the correct reference sequence is specified in the drop-down above before adding the identifiers.</p>
+
+                  <nav class="blog-pagination">
+                      Download
+                    <a class="btn btn-outline-primary" href="../static/demo-files/vr-demo.vcf" download="transformed-demo.vcf">VCF</a>
+                    <a class="btn btn-outline-primary" href="../static/demo-files/vr-demo.json" download="transformed-demo.json">JSON</a>
+                  </nav>
+
+                </div><!-- /.blog-post -->
+              </div><!-- /.blog-main -->
+              <!-- /.blog-sidebar -->
+            </div><!-- /.row -->
+</main><!-- /.container -->
+</div>
+<footer class="blog-footer" style="padding-top:20px;padding-bottom:20px;">
+<p>University of Utah - Department of Biomedical Informatics - <a href="http://eilbeck-lab.topaz.genetics.utah.edu/">Eilbeck Lab</a></p>
+</footer>
+
+<script>
+feather.replace()
+</script>
+</body>
+
+</html>

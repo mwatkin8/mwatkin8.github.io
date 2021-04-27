@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../static/images/u-logo-black.png">
+    <title>VRS Tool Suite</title>
+    <!-- CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/style.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="../static/js/script.js"></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+
+  </head>
+
+  <body>
+    <div id="loading" class="loading"><span class="loading_text">Please Wait...</span><span class="loading_sub">This can take longer for large VCF files</span></div>
+    <div id="non-loading" style="height: 100%">
+        <div class="container">
+          <header class="blog-header py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+              <div class="col-12 text-center">
+                <a class="blog-header-logo text-dark" href="/">VRS Tool Suite</a>
+              </div>
+            </div>
+          </header>
+          <div class="nav-scroller py-1 mb-2">
+            <nav class="nav d-flex">
+                    <a class="text-muted p-2" href="../index.html">Overview</a>
+                    <a class="text-muted p-2" href="vcf-tool.html">VCF</a>
+                    <a class="text-primary p-2" href="#">HGVS</a>
+                    <a class="text-muted p-2" href="digest-tool.html">Digest</a>
+            </nav>
+          </div>
+        </div>
+
+        <main role="main" class="container">
+            <div class="row">
+      <div class="col-md-10 blog-main">
+        <h3 class="pb-3 mb-4 font-italic border-bottom">
+          HGVS Tool
+        </h3>
+        <div class="blog-post">
+          <h2 class="blog-post-title">Convert an HGVS expression to a VRS Allele</h2>
+          <p>
+              This tool will generate a VRS Allele object to which represents the variant encoded by a user-entered HGVS expression.
+              Included in this JSON representation of the Allele will be globally unique VRS identifiers, as described in the
+              <a href="/">Overview</a> section of this tool suite.
+          </p>
+
+
+          <div class="form-group">
+              <label for="hgvs_entry">Enter your string here: (locked for demo)</label>
+              <input type="text" class="form-control" name="hgvs" placeholder="HGVS" value="NC_000001.11:c.706G>T" readonly>
+          </div>
+          <button class="btn btn-primary" onclick="hgvs()">Convert</button>
+
+          <br>
+          <!--Display area for transformed VCF file-->
+          <div class="row">
+              <!--Display area for transformed VCF file-->
+              <div class="bg-light col-md-11" style="overflow:scroll;height:300px;">
+                  <pre id="vr_model" style="padding:20px;"></pre>
+              </div>
+              <div class="col-md-1">
+                  <nav class="blog-pagination" style="padding-top:10px;">
+                    <button class="btn btn-outline-primary" onclick="copy('vr_model')"><span data-feather="clipboard"></span></button>
+                  </nav>
+              </div>
+
+          </div>
+
+
+
+        </div><!-- /.blog-post -->
+      </div><!-- /.blog-main -->
+      <!-- /.blog-sidebar -->
+    </div><!-- /.row -->
+</div>
+<footer class="blog-footer" style="padding-top:20px;padding-bottom:20px;">
+<p>University of Utah - Department of Biomedical Informatics - <a href="http://eilbeck-lab.topaz.genetics.utah.edu/">Eilbeck Lab</a></p>
+</footer>
+
+<script>
+feather.replace()
+</script>
+</body>
+
+</html>
