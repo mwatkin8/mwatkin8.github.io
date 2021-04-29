@@ -138,7 +138,7 @@ function suggestions(){
                     list += "<div class=\"media pt-3 rounded box-shadow\">\
                         <div class=\"media-body pb-3 mb-0 lh-125\">\
                             <div class=\"ml-3\" style=\"display:inline-block\">\
-                                <button class=\"btn btn-sm btn-success\" onclick=\"suggestModal('true','yes-modal')\"><img src=\"../static/icons/check.svg\"></img></button>&nbsp;&nbsp;<button class=\"btn btn-sm btn-danger\" onclick=\"suggestModal('true','no-modal')\"><img src=\"static/icons/x.svg\"></button>\
+                                <button class=\"btn btn-sm btn-success\" onclick=\"suggestModal('true','yes-modal')\"><img src=\"static/icons/check.svg\"></img></button>&nbsp;&nbsp;<button class=\"btn btn-sm btn-danger\" onclick=\"suggestModal('true','no-modal')\"><img src=\"static/icons/x.svg\"></button>\
                             </div>&nbsp;\
                             <h5 class=\"mt-2\" style=\"display:inline-block;font-weight:normal\">" + bins[hgvs]["Interpretation"] + "  <img class=\"pb-1\" src=\"static/icons/arrow-right.svg\"> " + bins[hgvs]["ClinVar Interpretation"] + " <span class=\"text-muted small\">(ClinVar)</span></h5>\
                             <a style=\"display:inline-block;float:right;font-size:large;\" class=\"mt-2 pl-3 mr-3\" href=\"detail.html?id=" + bins[hgvs]["ID"] + "\">" + bins[hgvs]["ID"] + "</a>\
