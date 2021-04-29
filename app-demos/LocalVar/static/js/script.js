@@ -138,9 +138,9 @@ function suggestions(){
                     list += "<div class=\"media pt-3 rounded box-shadow\">\
                         <div class=\"media-body pb-3 mb-0 lh-125\">\
                             <div class=\"ml-3\" style=\"display:inline-block\">\
-                                <button class=\"btn btn-sm btn-success\" onclick=\"suggestModal('true','yes-modal')\"><img src=\"../static/icons/check.svg\"></img></button>&nbsp;&nbsp;<button class=\"btn btn-sm btn-danger\" onclick=\"suggestModal('true','no-modal')\"><img src=\"../static/icons/x.svg\"></button>\
+                                <button class=\"btn btn-sm btn-success\" onclick=\"suggestModal('true','yes-modal')\"><img src=\"../static/icons/check.svg\"></img></button>&nbsp;&nbsp;<button class=\"btn btn-sm btn-danger\" onclick=\"suggestModal('true','no-modal')\"><img src=\"static/icons/x.svg\"></button>\
                             </div>&nbsp;\
-                            <h5 class=\"mt-2\" style=\"display:inline-block;font-weight:normal\">" + bins[hgvs]["Interpretation"] + "  <img class=\"pb-1\" src=\"../static/icons/arrow-right.svg\"> " + bins[hgvs]["ClinVar Interpretation"] + " <span class=\"text-muted small\">(ClinVar)</span></h5>\
+                            <h5 class=\"mt-2\" style=\"display:inline-block;font-weight:normal\">" + bins[hgvs]["Interpretation"] + "  <img class=\"pb-1\" src=\"static/icons/arrow-right.svg\"> " + bins[hgvs]["ClinVar Interpretation"] + " <span class=\"text-muted small\">(ClinVar)</span></h5>\
                             <a style=\"display:inline-block;float:right;font-size:large;\" class=\"mt-2 pl-3 mr-3\" href=\"detail.html?id=" + bins[hgvs]["ID"] + "\">" + bins[hgvs]["ID"] + "</a>\
                             <span style=\"display:inline-block;float:right;font-size:large;\" class=\"mt-2\">" + hgvs + "</span>\
                         </div>\
@@ -176,7 +176,7 @@ function suggestions(){
         table += "               </tbody>\
                             </table>\
                         </div>\
-                        <div style=\"text-align: center;\"><img src=\"../static/icons/arrow-down.svg\"></div>\
+                        <div style=\"text-align: center;\"><img src=\"static/icons/arrow-down.svg\"></div>\
                         <div class=\"pt-1\">\
                             <table class=\"table table-bordered table-sm\">\
                                 <tbody>\
@@ -230,7 +230,7 @@ function suggestions(){
         table += "               </tbody>\
                             </table>\
                         </div>\
-                        <div style=\"text-align: center;\"><img src=\"../static/icons/arrow-down.svg\"></div>\
+                        <div style=\"text-align: center;\"><img src=\"static/icons/arrow-down.svg\"></div>\
                         <div class=\"pt-1\">\
                             <table class=\"table table-bordered table-sm\">\
                                 <tbody>\
@@ -257,7 +257,7 @@ function buildDupRow(fields){
     for (let i=0; i < fields.length; i++){
         let r = Math.floor(Math.random() * 1000000) + 1
         if(i !== 9 && i !== 10){
-            row += "<td id=\"" + r + "\"><div class=\"pt-2 pb-2\" style=\"text-align: center;\"><button onclick=\"merge(\'" + fields[9] + "\',\'" + String(r) + "\',\'" + String(i) + "\',\'\')\" style=\"vertical-align: bottom;\"class=\"btn btn-primary btn-sm\"><img src=\"../static/icons/plus.svg\"></button></div><div class=\"cell-content\" style=\"text-align: center;\">" + fields[i] + "</div></td>"
+            row += "<td id=\"" + r + "\"><div class=\"pt-2 pb-2\" style=\"text-align: center;\"><button onclick=\"merge(\'" + fields[9] + "\',\'" + String(r) + "\',\'" + String(i) + "\',\'\')\" style=\"vertical-align: bottom;\"class=\"btn btn-primary btn-sm\"><img src=\"static/icons/plus.svg\"></button></div><div class=\"cell-content\" style=\"text-align: center;\">" + fields[i] + "</div></td>"
         }
         else{
             row += "<td id=\"" + r + "\"><div class=\"cell-content\" style=\"text-align: center;\">" + fields[i] + "</div></td>"
@@ -272,10 +272,10 @@ function buildSynRow(fields,unique){
         let r = Math.floor(Math.random() * 1000000) + 1
         if(i !== 10){
             if(i === 9){
-                row += "<td id=\"" + r + "\"><div class=\"pt-2 pb-2\" style=\"text-align: center;\"><button onclick=\"mergeSyn(\'" + unique + "\',\'" + String(r) + "\',\'" + String(i) + "\',\'" + fields[10] + "\')\" style=\"vertical-align: bottom;\"class=\"btn btn-primary btn-sm\"><img src=\"../static/icons/plus.svg\"></button></div><div class=\"cell-content\" style=\"text-align: center;\">" + fields[i] + "</div></td>"
+                row += "<td id=\"" + r + "\"><div class=\"pt-2 pb-2\" style=\"text-align: center;\"><button onclick=\"mergeSyn(\'" + unique + "\',\'" + String(r) + "\',\'" + String(i) + "\',\'" + fields[10] + "\')\" style=\"vertical-align: bottom;\"class=\"btn btn-primary btn-sm\"><img src=\"static/icons/plus.svg\"></button></div><div class=\"cell-content\" style=\"text-align: center;\">" + fields[i] + "</div></td>"
             }
             else{
-                row += "<td id=\"" + r + "\"><div class=\"pt-2 pb-2\" style=\"text-align: center;\"><button onclick=\"mergeSyn(\'" + unique + "\',\'" + String(r) + "\',\'" + String(i) + "\',\'\')\" style=\"vertical-align: bottom;\"class=\"btn btn-primary btn-sm\"><img src=\"../static/icons/plus.svg\"></button></div><div class=\"cell-content\" style=\"text-align: center;\">" + fields[i] + "</div></td>"
+                row += "<td id=\"" + r + "\"><div class=\"pt-2 pb-2\" style=\"text-align: center;\"><button onclick=\"mergeSyn(\'" + unique + "\',\'" + String(r) + "\',\'" + String(i) + "\',\'\')\" style=\"vertical-align: bottom;\"class=\"btn btn-primary btn-sm\"><img src=\"static/icons/plus.svg\"></button></div><div class=\"cell-content\" style=\"text-align: center;\">" + fields[i] + "</div></td>"
             }
         }
         else{
