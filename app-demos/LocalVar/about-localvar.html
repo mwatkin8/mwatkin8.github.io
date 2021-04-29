@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/images/icon.png">
+
+    <title>LocalVar</title>
+
+    <!-- CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/base.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="static/js/script.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><img src="static/images/icon.png" width="25" height="25"/> LocalVar</a>
+    </nav>
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-fixed">
+            <ul id="sidebar-list" style="margin-top:70px" class="nav flex-column">
+              <li id="new-collection" class="nav-item">
+                <a class="nav-link" href="index.html">
+                  <img class="pb-1"src="static/icons/file-plus.svg"></img>
+                  New Collection
+                </a>
+              </li>
+              <li id="viewer" class="nav-item">
+                <a class="nav-link" href="viewer.html">
+                  <img class="pb-1"src="static/icons/list.svg"></img>
+                  View Collection
+                </a>
+              </li>
+              <li id="suggestions" class="nav-item">
+                <a class="nav-link" href="suggestions.html?type=update">
+                  <img class="pb-1"src="static/icons/alert-circle.svg"></img>
+                  Suggestions
+                </a>
+              </li>
+              <li id="trash" class="nav-item">
+                <a class="nav-link" href="trash.html">
+                  <img class="pb-1"src="static/icons/trash-2.svg"></img>
+                  Trash
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Reports</span>
+            </h6>
+            <ul id="report-list" class="nav flex-column mb-2">
+                <li id="csv" class="nav-item">
+                  <a class="nav-link" href="snapshot-file.html">
+                    <img class="pb-1" src="static/icons/file-text.svg"></img>
+                    Snapshot
+                  </a>
+                </li>
+                  <li id="history" class="nav-item">
+                    <a class="nav-link" href="history-file.html">
+                      <img class="pb-1"src="static/icons/file-text.svg"></img>
+                      History
+                    </a>
+                  </li>
+                  <li id="bins" class="nav-item">
+                    <a class="nav-link" href="bins-file.html">
+                      <img class="pb-1"src="static/icons/file-text.svg"></img>
+                      HGVS Bins
+                    </a>
+                  </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>About</span>
+            </h6>
+            <ul id="about-list" class="nav flex-column mb-2">
+              <li id="about-localvar" class="nav-item">
+                <a class="nav-link active" href="#">
+                  <img class="pb-1"src="static/icons/help-circle.svg"></img>
+                  LocalVar
+                </a>
+              </li>
+              <li id="about-vrs" class="nav-item">
+                <a class="nav-link" href="about-vrs.html">
+                  <img class="pb-1"src="static/icons/help-circle.svg"></img>
+                  VRS
+                </a>
+              </li>
+              <br />
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-5  pt-3 px-4">
+            <div class="row">
+              <div class="col-md-8">
+                <h3 class="pb-3 mb-4 border-bottom">
+                  LocalVar
+                </h3>
+                <div >
+                    <h4 style="font-weight:normal">Relation to existing services</h4>
+                  <p>
+                      There are a growing number of genetic variant databases, most of which include insightful annotations:
+                      <ul>
+                          <li><i><a href="https://www.ncbi.nlm.nih.gov/clinvar/">ClinVar</a></i> - "aggregates information about genomic variation and its relationship to human health."</li>
+                          <li><i><a href="https://clinicalgenome.org/">ClinGen</a></i> - "a central resource that defines the clinical relevance of genes and variants for use in precision medicine and research."</li>
+                          <li><i><a href="https://www.ncbi.nlm.nih.gov/snp/">dbSNP</a></i> - "contains human single nucleotide variations, microsatellites, and small-scale insertions and deletions along with publication, population frequency, molecular consequence, and genomic and RefSeq mapping information for both common variations and clinical mutations."</li>
+                          <li><i><a href="https://gnomad.broadinstitute.org/">gnomAD</a></i> - "aggregates and harmonizes both exome and genome sequencing data from a wide variety of large-scale sequencing projects and makes summary data available for the wider scientific community."</li>
+                          <li><i><a href="https://www.ncbi.nlm.nih.gov/dbvar/">dbVar</a></i> - "NCBI's database of human genomic Structural Variation — large variants >50 bp including insertions, deletions, duplications, inversions, mobile elements, translocations, and complex variants."</li>
+                          <li><i><a href="https://civicdb.org/home">CIViC</a></i> - "open access, open source, community-driven web resource for Clinical Interpretation of Variants in Cancer."</li>
+                          <li><i><a href="https://cancer.sanger.ac.uk/cosmic">COSMIC</a></i> - "the Catalogue Of Somatic Mutations In Cancer, is the world's largest and most comprehensive resource for exploring the impact of somatic mutations in human cancer."</li>
+                      </ul>
+                      In response to this rising volume of variant data, REST-based tools have also been created to map between genome versions and harmonize identifiers across databases:
+                      <ul>
+                          <li><i><a href="https://clinicalgenome.org/">ClinGen Allele Registry</a></i> - "provides and maintains identifiers for genetic variants."</li>
+                          <li><i><a href="https://myvariant.info/">MyVariant.info</a></i> - "simple-to-use REST web services to query/retrieve variant annotation data, aggregated from many popular data resources."</li>
+                      </ul>
+                      <u>However, each of these services are designed for query-based knowledge retrieval.</u> In practice, most variant data is stored in local collections that require custom tooling to track provenance, record edit history, update HGVS expressions, and update interpretation information. <br /><br />LocalVar fills these needs by asynchronously detecting possible updates via ClinVar. These updates are suggested to the user and can be either accepted or ignored as explained in the sections below:
+
+                  </p>
+                  <h4 style="font-weight:normal">Overview</h4>
+                  <p>
+                      The tool is initialized when a new collection is added in the form of a .csv file. This file is uploaded by the user in the "New Collection" screen. The file must contain unique identifiers in the first column, a column containing full HGVS expressions, and an "interpretation" column.
+                  </p>
+                  <p>
+                      The user will be prompted to select the names of the column containing the HGVS expressions and the column containing the variant interpretation.
+                  </p>
+                  <p>
+                      VRS identifiers will be added as an additional column as part of the initialization process. The resulting collection is displayed in the "View Collection" screen as an interactive table.
+                  </p>
+                  <p>
+                      Records (rows in the table) can be clicked to enter a detailed view of the record. This view shows if the HGVS expression is also detected within ClinVar. If so, it will display the clinical significance as determined by ClinVar as well as any synonymous HGVS expressions. Within this detailed view, fields of the record can be directly edited. Any editing of the HGVS expression will result in a new VRS identifier and updated information from ClinVar. All edits to records (both manual and asynchronous from accepted update suggestions) are stored in an edit history for that record which is also displayed in this detailed view. Users can move a record to the trash by clicking the red "X" in the top-right corner of the page.
+                  </p>
+                  <p>
+                      Records moved to the trash can be recovered or permanently deleted. Recovered records will contain timestamped events of both moving to the trash and being restored from the trash.
+                  </p>
+                  <p>
+                      The "Suggestions" page allows users to review three types of auto-generated suggestions. The first type are suggestions to update the interpretation of the record to match what is in ClinVar. If accepted, LocalVar can either change all instances of the interpretation conflict, or just that of the record corresponding with the suggestion. This update, if accepted, is timestamped and recorded in the history of the record. The second type consist of records that have identical HGVS expressions. The user can merge two or more records with identical HGVS expressions into a single record. This new record will contain a timestamped record of the event. The old records will be moved to the trash. The third type of suggestions are those for two HGVS expressions that ClinVar has stored as synonyms of one another. The user can merge these two records into one. The event is timestamped and recorded in the history of the merged record and the old record(s) is/are moved to the trash.
+                  </p>
+                  <p>
+                      There are three "Report" pages accessible via the fixed sidebar. The first allows the user to capture and download the current state of the collection as a .csv file. This allows users the opportunity to be independent of LocalVar without losing valuable information about the collection. The second allows the user to capture and download the current history of the collection. This is a .json file and contains the individual edit histories of all records in the collection. This also allows a user to move to other tooling without losing the valuable information collected by LocalVar. The third allows users to explore the ClinVar data utilized by LocaVar. It is a .json file of the bins of HGVS synonyms and clinical significance annotations gathered asynchronously by LocalVar.
+                  </p>
+                      <br><br>
+                      </div><!-- /.blog-post -->
+              </div><!-- /.blog-main -->
+              <aside class="col-md-4">
+                <div class="p-3 mb-3 bg-light rounded">
+                  <h4 style="font-weight:normal" class="font-italic">At a Glance...</h4>
+                  <p class="mb-0">LocalVar allows you to conveniently manage your local variant collection with the following features:</p>
+                  <ol class="pt-2">
+                        <li>Auto-complete search bar to pre-empt duplicates</li>
+                        <li>Single or bulk new data entry</li>
+                        <li>Auto-detection of duplicate entries</li>
+                        <li>Auto-detection and merge suggestions for HGVS synonyms</li>
+                        <li>Asynchronous suggestion of HGVS or Interpretation updates</li>
+                        <li>History tracking of additions, merges, updates, or other edits</li>
+                        <li>Easy export of the collection (.csv), history (.json), or synonym bins (.json)</li>
+                  </ol>
+
+                </div>
+                <div class="p-3">
+                  <h4 style="font-weight:normal">Links</h4>
+                  <ol class="list-unstyled mb-0">
+                    <li><a href="https://ftp.ncbi.nlm.nih.gov/pub/clinvar/tab_delimited/archive/">ClinVar FTP Archive</a></li>
+                    <li><a href="https://github.com/ga4gh/vrs">GitHub Repository</a></li>
+                  </ol>
+                </div>
+              </aside><!-- /.blog-sidebar -->
+            </div><!-- /.row -->
+            <br /><br /><br /><br /><br /><br />
+      </main>
+      </div>
+      </div>
+
+
+
+
+
+  </body>
+</html>

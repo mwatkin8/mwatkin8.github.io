@@ -16,24 +16,22 @@
     <script src="static/js/script.js"></script>
   </head>
 
-  <body>
+  <body onload="historyFile()">
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><img src="static/images/icon.png" width="25" height="25"/> LocalVar</a>
-    </nav>
-    <div id="initializing" class="initializing"><span class="initializing_text pl-5">Initializing...</span><span class="initializing_sub pl-5">This can take longer for large collections</span></div>
-    <div id="non" class="container-fluid">
+  </nav>
       <div class="row">
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-fixed">
             <ul id="sidebar-list" style="margin-top:70px" class="nav flex-column">
               <li id="new-collection" class="nav-item">
-                <a class="nav-link active" href="index.html">
+                <a class="nav-link" href="index.html">
                   <img class="pb-1"src="static/icons/file-plus.svg"></img>
                   New Collection
                 </a>
               </li>
               <li id="viewer" class="nav-item">
-                <a class="nav-link" href="viewer.html">
+                <a class="nav-link" href="#">
                   <img class="pb-1"src="static/icons/list.svg"></img>
                   View Collection
                 </a>
@@ -63,7 +61,7 @@
                   </a>
                 </li>
                   <li id="history" class="nav-item">
-                    <a class="nav-link" href="history-file.html">
+                    <a class="nav-link active" href="history-file.html">
                       <img class="pb-1"src="static/icons/file-text.svg"></img>
                       History
                     </a>
@@ -98,69 +96,10 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-5  pt-3 px-4">
-            <div id="modal" class="modal">
-                 <!-- The modal content -->
-                 <div class="modal-content text-center"><h4>Warning!</h4>
-                     <div style="padding:50px;">
-                         <h6>This will delete your existing collection and history</h6>
-                   </div>
-                   <div class="row">
-                       <div class="col-md-6">
-                           <a class="btn btn-outline-success btn-block" href="/delete">Confirm</a>
-                        </div>
-                        <div class="col-md-6">
-                            <a class="btn btn-outline-danger btn-block" href="/">Cancel</a>
-                        </div>
-                     </div>
-                 </div>
-            </div>
-            <script type="text/javascript">
-               modal("{{ warning }}")
-            </script>
-            <script type="text/javascript">
-               if('{{ alert }}' === 'true'){
-                   alert('You must first upload a collection.')
-               }
-            </script>
-
-            <div class="pb-2 mb-3 border-bottom">
-                <h1 class="h2">Getting started...</h1>
-            </div>
-            <div class="form-group">
-                <button class="btn btn-primary btn-sm">Select .csv file</button>
-                <label for="fileInput">demo.csv <code>(locked for demo)</code></label><br />
-                <span>The first column should contain unique identifiers</span>
-            </div>
-
-            <code>(Drop-downs shown for demo, but selections will not be saved)</code>
-            <div class="form-group">
-                <label for="hgvsSelect">Which column contains the full HGVS expressions? (ex: NM_001171.5:c.1091C>G)</label>
-                <select class="form-control col-select mb-3" name="hgvsSelect">
-                    <option>ID</option>
-                    <option>Result</option>
-                    <option>Gene</option>
-                    <option>Interpretation</option>
-                    <option>StandardizedResult</option>
-                    <option>CodingDNARef</option>
-                    <option>ProteinRef</option>
-                    <option>RefSeqID</option>
-                    <option>Note</option>
-                    <option>HGVS</option>
-                </select>
-                <label for="intSelect">Which column contains the interpretations of the variants?</label>
-                <select class="form-control col-select" name="intSelect">'
-                    <option>ID</option>
-                    <option>Result</option>
-                    <option>Gene</option>
-                    <option>Interpretation</option>
-                    <option>StandardizedResult</option>
-                    <option>CodingDNARef</option>
-                    <option>ProteinRef</option>
-                    <option>RefSeqID</option>
-                    <option>Note</option>
-                    <option>HGVS</option>
-                </select>
-                <button class="btn btn-small btn-success mt-3" onclick="showInitializing()">Load Collection</button>
+            <p><button class="btn btn-small btn-primary" onclick="alert('Download not available in demo.')">Download <img class="pb-1"src="static/icons/download.svg"></img></button> &nbsp; &nbsp;demo-history.json</p>
+            <p>&nbsp;</p>
+            <div style="height:100vh">
+              <pre id="file"></pre>
             </div>
       </main>
       </div>

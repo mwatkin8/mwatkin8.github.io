@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/images/icon.png">
+
+    <title>LocalVar</title>
+
+    <!-- CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/base.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="static/js/script.js"></script>
+  </head>
+
+  <body onload="suggestions()">
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><img src="static/images/icon.png" width="25" height="25"/> LocalVar</a>
+    </nav>
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-fixed">
+            <ul id="sidebar-list" style="margin-top:70px" class="nav flex-column">
+              <li id="new-collection" class="nav-item">
+                <a class="nav-link" href="index.html">
+                  <img class="pb-1"src="static/icons/file-plus.svg"></img>
+                  New Collection
+                </a>
+              </li>
+              <li id="viewer" class="nav-item">
+                <a class="nav-link" href="viewer.html">
+                  <img class="pb-1"src="static/icons/list.svg"></img>
+                  View Collection
+                </a>
+              </li>
+              <li id="suggestions" class="nav-item">
+                <a class="nav-link active" href="suggestions.html?type=update">
+                  <img class="pb-1"src="static/icons/alert-circle.svg"></img>
+                  Suggestions
+                </a>
+              </li>
+              <li id="trash" class="nav-item">
+                <a class="nav-link" href="trash.html">
+                  <img class="pb-1"src="static/icons/trash-2.svg"></img>
+                  Trash
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Reports</span>
+            </h6>
+            <ul id="report-list" class="nav flex-column mb-2">
+                <li id="csv" class="nav-item">
+                  <a class="nav-link" href="snapshot-file.html">
+                    <img class="pb-1" src="static/icons/file-text.svg"></img>
+                    Snapshot
+                  </a>
+                </li>
+                  <li id="history" class="nav-item">
+                    <a class="nav-link" href="history-file.html">
+                      <img class="pb-1"src="static/icons/file-text.svg"></img>
+                      History
+                    </a>
+                  </li>
+                  <li id="bins" class="nav-item">
+                    <a class="nav-link" href="bins-file.html">
+                      <img class="pb-1"src="static/icons/file-text.svg"></img>
+                      HGVS Bins
+                    </a>
+                  </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>About</span>
+            </h6>
+            <ul id="about-list" class="nav flex-column mb-2">
+              <li id="about-localvar" class="nav-item">
+                <a class="nav-link" href="about-localvar.html">
+                  <img class="pb-1"src="static/icons/help-circle.svg"></img>
+                  LocalVar
+                </a>
+              </li>
+              <li id="about-vrs" class="nav-item">
+                <a class="nav-link" href="about-vrs.html">
+                  <img class="pb-1"src="static/icons/help-circle.svg"></img>
+                  VRS
+                </a>
+              </li>
+              <br />
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-5  pt-3 px-4">
+            <p id="ints" style="display:none"></p>
+            <p id="entry-id" style="display:none"></p>
+            <p id="hgvs" style="display:none"></p>
+            <div id="no-modal" class="modal">
+                 <!-- The modal content -->
+                 <div class="modal-content text-center"><h4>Tailor your suggestions</h4>
+                     <div style="padding:50px;">
+                         <h6>Should <i>all</i> suggestions with this interpretation conflict be removed?</h6>
+                         <code>suggestions have been disabled in this demo</code>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-4">
+                           <button class="btn btn-outline-success btn-block" onclick="suggestModal('false','no-modal')">Yes</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-outline-primary btn-block" onclick="suggestModal('false','no-modal')">Just this one</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-outline-danger btn-block" onclick="suggestModal('false','no-modal')">Cancel</button>
+                        </div>
+                     </div>
+                 </div>
+            </div>
+            <div id="merge-dup-modal" class="modal">
+                 <!-- The modal content -->
+                 <div class="modal-content text-center"><h4>Are you sure?</h4>
+                     <div style="padding:50px;">
+                         <h6>Record <i id="dup-updated-id"></i> will be updated</h6>
+                         <h6>Record <i id="dup-removed-id"></i> will be moved to the trash</h6>
+                         <code>suggestions have been disabled in this demo</code>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-6">
+                           <button onclick="mergeDupModal('hide','',[])" class="btn btn-outline-success btn-block">Confirm</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button onclick="mergeDupModal('hide','',[])"class="btn btn-outline-danger btn-block">Cancel</button>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+            <div id="merge-syn-modal" class="modal">
+                 <!-- The modal content -->
+                 <div class="modal-content text-center"><h4>Are you sure?</h4>
+                     <div style="padding:50px;">
+                         <h6>Record <i id="syn-updated-id"></i> will be updated</h6>
+                         <h6>Record <i id="syn-removed-id"></i> will be moved to the trash</h6>
+                         <code>suggestions have been disabled in this demo</code>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-6">
+                           <button onclick="mergeSynModal('hide','',[])" class="btn btn-outline-success btn-block">Confirm</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button onclick="mergeSynModal('hide','',[])"class="btn btn-outline-danger btn-block">Cancel</button>
+                         </div>
+                     </div>
+                 </div>
+            </div>
+            <div id="yes-modal" class="modal">
+                 <!-- The modal content -->
+                 <div class="modal-content text-center"><h4>Tailor your suggestions</h4>
+                     <div style="padding:50px;">
+                         <h6>Do you want to update <i>all</i> instances of this interpretation conflict?</h6>
+                         <code>suggestions have been disabled in this demo</code>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-4">
+                           <button class="btn btn-outline-success btn-block" onclick="suggestModal('false','yes-modal')">Yes</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-outline-primary btn-block" onclick="suggestModal('false','yes-modal')">Just this one</button>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-outline-danger btn-block" onclick="suggestModal('false','yes-modal')">Cancel</button>
+                        </div>
+                     </div>
+                 </div>
+            </div>
+
+            <ul id="suggestion-tabs" class="nav nav-tabs">
+              <li id="update" class="nav-item">
+                <a class="tab nav-link active" href="suggestions.html?type=update">Update Interpretation</a>
+              </li>
+              <li id="merge-dup" class="nav-item">
+                <a class="tab nav-link" href="suggestions.html?type=merge-dup">Merge Duplicate</a>
+              </li>
+              <li id="merge-syn" class="nav-item">
+                <a class="tab nav-link" href="suggestions.html?type=merge-syn">Merge Synonym</a>
+              </li>
+            </ul>
+
+            <div class="my-3 p-3 bg-white">
+                <h2 class="pb-2 mb-0 lead">Suggestions <span id="total" class="badge badge-secondary"></span></h2>
+                <div class="jumbotron mt-3 pt-3 mb-3 pb-3">
+                    <p class="lead mb-1 pb-1"><i id="explanation"></i></p>
+                </div>
+                <div id="list"></div>
+            </div>
+      </main>
+      </div>
+      </div>
+
+
+
+
+
+  </body>
+</html>

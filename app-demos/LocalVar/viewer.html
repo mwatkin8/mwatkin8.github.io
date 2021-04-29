@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="static/images/icon.png">
+
+    <title>LocalVar</title>
+
+    <!-- CSS -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/base.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="static/js/script.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><img src="static/images/icon.png" width="25" height="25"/> LocalVar</a>
+  </nav>
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-fixed">
+            <ul id="sidebar-list" style="margin-top:70px" class="nav flex-column">
+              <li id="new-collection" class="nav-item">
+                <a class="nav-link" href="index.html">
+                  <img class="pb-1"src="static/icons/file-plus.svg"></img>
+                  New Collection
+                </a>
+              </li>
+              <li id="viewer" class="nav-item">
+                <a class="nav-link active" href="viewer.html">
+                  <img class="pb-1"src="static/icons/list.svg"></img>
+                  View Collection
+                </a>
+              </li>
+              <li id="suggestions" class="nav-item">
+                <a class="nav-link" href="suggestions.html?type=update">
+                  <img class="pb-1"src="static/icons/alert-circle.svg"></img>
+                  Suggestions
+                </a>
+              </li>
+              <li id="trash" class="nav-item">
+                <a class="nav-link" href="trash.html">
+                  <img class="pb-1"src="static/icons/trash-2.svg"></img>
+                  Trash
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Reports</span>
+            </h6>
+            <ul id="report-list" class="nav flex-column mb-2">
+                <li id="csv" class="nav-item">
+                  <a class="nav-link" href="snapshot-file.html">
+                    <img class="pb-1" src="static/icons/file-text.svg"></img>
+                    Snapshot
+                  </a>
+                </li>
+                  <li id="history" class="nav-item">
+                    <a class="nav-link" href="history-file.html">
+                      <img class="pb-1"src="static/icons/file-text.svg"></img>
+                      History
+                    </a>
+                  </li>
+                  <li id="bins" class="nav-item">
+                    <a class="nav-link" href="bins-file.html">
+                      <img class="pb-1"src="static/icons/file-text.svg"></img>
+                      HGVS Bins
+                    </a>
+                  </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>About</span>
+            </h6>
+            <ul id="about-list" class="nav flex-column mb-2">
+              <li id="about-localvar" class="nav-item">
+                <a class="nav-link" href="about-localvar.html">
+                  <img class="pb-1"src="static/icons/help-circle.svg"></img>
+                  LocalVar
+                </a>
+              </li>
+              <li id="about-vrs" class="nav-item">
+                <a class="nav-link" href="about-vrs.html">
+                  <img class="pb-1"src="static/icons/help-circle.svg"></img>
+                  VRS
+                </a>
+              </li>
+              <br />
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 mt-5  pt-3 px-4">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <!--Make sure the form has the autocomplete function switched off:-->
+                      <div class="autocomplete" style="width:100%">
+                        <input autofocus id="myInput" type="text" placeholder="Search by HGVS Expression (ex: NM_000001.1:c.123C>G)">
+                      </div>
+                </div>
+                <div class="col-md-6 ml-0 pl-0">
+                    <button class="btn btn-primary mt-1" style="float:left;" onclick="searchSelect()"><img src="static/icons/search.svg"></img></button>
+                    <button class="btn btn-primary mt-1" style="float:right;" onclick="newEntry()"><img class="pb-1" src="static/icons/plus.svg"></img> New Entry</button>
+                </div>
+            </div>
+            <div id="add-row" style="display:none;padding-left:20px;padding-right:20px" class="row">
+                <hr />
+                <div class="row">
+                  <div class="col-md-11" style="padding-top:5px;">
+                      <textarea style="width:100%" class="form-control" name="new-entry" disabled rows="4" cols="80">Locked for demo (example new entries shown below)
+
+c.489+3A>G,CFTR,Yes,NULL,c.489+3A>G,Intronic,NM_000492.3,NULL,NM_000492.3:c.489+3A>G
+c.487C>T,BRIP1,Indeterminant,NULL,c.487C>T,p.Pro163Ser,NM_032043.2,NULL,NM_032043.2:c.487C>T
+c.4879A>G,NF1,Indeterminant,NULL,c.4879A>G,p.Thr1627Ala,NM_000267.3,NULL,NM_000267.3:c.4879A>G
+c.483_485del,CHEK2,Yes,NULL,c.483_485del,p.Glu161del,NM_007194.3,NULL,NM_007194.3:c.483_485del
+                      </textarea>
+                      <span class="form-text text-muted">Paste a comma-delimited new entry. Multiple entries must be on separate lines. The "ID" and "VRS" column values will be added automatically.</span>
+                  </div>
+                  <div class="col-md-1">
+                      <button class="btn btn-success mt-1" onclick="alert('Adding new entries is not supported in demo.')"><img src="static/icons/check.svg"></img></button><br />
+                      <button type="button" class="btn btn-danger mt-2" onclick="closeEntry()"><img src="static/icons/x.svg"></img></button>
+                  </div>
+                </div>
+                <hr />
+            </div>
+            <script>
+                function searchSelect(){
+                    let input = document.getElementById("myInput");
+                    hgvs = input.value;
+                    let map = {'NM_007294.4:c.5096G>A':'21580','NM_007294.3:c.5096G>A':'21565','NM_000553.4:c.1181C>G':'21563',
+                    'NM_000551.3:c.433C>G':'21562','NM_000548.3:c.293G>A':'21561','NM_016222.4:c.3G>A':'21560','NM_001128849.1:c.829C>T':'21559','NM_004168.3:c.456+9C>T':'21558',
+                    'NM_020975.4:c.604G>A':'21557','NM_004260.3:c.2261G>A':'21556','NM_000321.2:c.983del':'21555','NM_002878.3:c.955_959dup':'21554','NM_006231.3:c.6843C>G':'21553',
+                    'NM_006231.3:c.6434G>A':'21552','NM_006231.3:c.4072A>G':'21551','NM_006231.3:c.1574A>G':'21550','NM_002691.3:c.3221G>A':'21549','NM_002691.3:c.2467C>T':'21548',
+                    'NM_000535.5:c.106A>C':'21547','NM_024675.3:c.3196G>A':'21545','NM_024675.3:c.2736G>A':'21544','NM_002485.4:c.1729G>T':'21543','NM_001128425.1:c.936G>A':'21542',
+                    'NM_000179.2:c.2827G>T':'21541','NM_000179.2:c.2027A>G':'21540','NM_000251.2:c.1695A>C':'21539','NM_000251.2:c.1387G>A':'21538','NM_005591.3:c.862C>T':'21537',
+                    'NM_005591.3:c.482A>G':'21536','NM_005591.3:c.2042C>T':'21535','NM_000249.3:c.409G>A':'21534','NM_000249.3:c.1668-?_*193+?dup':'21533','NM_000410.3:c.187C>G':'21531',
+                    'NM_144997.5:c.1451A>G':'21530','NM_144997.5:c.1337G>A':'21529','NM_005228.3:c.293G>A':'21528','NM_177438.2:c.5390A>G':'21527','NM_020975.6:c.604G>A':'21526',
+                    'NM_000492.3:c.178G>T':'21525','NM_004360.3:c.1137G>A':'21524','NM_031443.3:c.55C>T':'21522','NM_000388.3:c.3055G>A':'21521','NM_000059.3:c.8243G>A':'21520',
+                    'NM_000059.3:c.7759C>T':'21519','NM_000059.3:c.3245A>G':'21518','NM_000059.3:c.2593G>C':'21517','NM_007294.3:c.455T>C':'21516','NM_007294.3:c.1860del':'21515',
+                    'NM_007294.3:c.1175_1214del':'21514','NM_007294.3:c.1175_1214del':'21513'}
+                    select(map[hgvs])
+                }
+
+                function autocomplete(inp, arr) {
+                  /*the autocomplete function takes two arguments,
+                  the text field element and an array of possible autocompleted values:*/
+                  var currentFocus;
+                  /*execute a function when someone writes in the text field:*/
+                  inp.addEventListener("input", function(e) {
+                      var a, b, i, val = this.value;
+                      /*close any already open lists of autocompleted values*/
+                      closeAllLists();
+                      if (!val) { return false;}
+                      currentFocus = -1;
+                      /*create a DIV element that will contain the items (values):*/
+                      a = document.createElement("DIV");
+                      a.setAttribute("id", this.id + "autocomplete-list");
+                      a.setAttribute("class", "autocomplete-items");
+                      /*append the DIV element as a child of the autocomplete container:*/
+                      this.parentNode.appendChild(a);
+                      /*for each item in the array...*/
+                      for (i = 0; i < arr.length; i++) {
+                        /*check if the item starts with the same letters as the text field value:*/
+                        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                          /*create a DIV element for each matching element:*/
+                          b = document.createElement("DIV");
+                          /*make the matching letters bold:*/
+                          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                          b.innerHTML += arr[i].substr(val.length);
+                          /*insert a input field that will hold the current array item's value:*/
+                          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                          /*execute a function when someone clicks on the item value (DIV element):*/
+                              b.addEventListener("click", function(e) {
+                              /*insert the value for the autocomplete text field:*/
+                              inp.value = this.getElementsByTagName("input")[0].value;
+                              /*close the list of autocompleted values,
+                              (or any other open lists of autocompleted values:*/
+                              closeAllLists();
+                          });
+                          a.appendChild(b);
+                        }
+                      }
+                  });
+                  /*execute a function presses a key on the keyboard:*/
+                  inp.addEventListener("keydown", function(e) {
+                      var x = document.getElementById(this.id + "autocomplete-list");
+                      if (x) x = x.getElementsByTagName("div");
+                      if (e.keyCode == 40) {
+                        /*If the arrow DOWN key is pressed,
+                        increase the currentFocus variable:*/
+                        currentFocus++;
+                        /*and and make the current item more visible:*/
+                        addActive(x);
+                      } else if (e.keyCode == 38) { //up
+                        /*If the arrow UP key is pressed,
+                        decrease the currentFocus variable:*/
+                        currentFocus--;
+                        /*and and make the current item more visible:*/
+                        addActive(x);
+                      } else if (e.keyCode == 13) {
+                        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                        e.preventDefault();
+                        if (currentFocus > -1) {
+                          /*and simulate a click on the "active" item:*/
+                          if (x) x[currentFocus].click();
+                        }
+                      }
+                  });
+                  function addActive(x) {
+                    /*a function to classify an item as "active":*/
+                    if (!x) return false;
+                    /*start by removing the "active" class on all items:*/
+                    removeActive(x);
+                    if (currentFocus >= x.length) currentFocus = 0;
+                    if (currentFocus < 0) currentFocus = (x.length - 1);
+                    /*add class "autocomplete-active":*/
+                    x[currentFocus].classList.add("autocomplete-active");
+                  }
+                  function removeActive(x) {
+                    /*a function to remove the "active" class from all autocomplete items:*/
+                    for (var i = 0; i < x.length; i++) {
+                      x[i].classList.remove("autocomplete-active");
+                    }
+                  }
+                  function closeAllLists(elmnt) {
+                    /*close all autocomplete lists in the document,
+                    except the one passed as an argument:*/
+                    var x = document.getElementsByClassName("autocomplete-items");
+                    for (var i = 0; i < x.length; i++) {
+                      if (elmnt != x[i] && elmnt != inp) {
+                      x[i].parentNode.removeChild(x[i]);
+                    }
+                  }
+                }
+                /*execute a function when someone clicks in the document:*/
+                document.addEventListener("click", function (e) {
+                    closeAllLists(e.target);
+                });
+                }
+                autocomplete(document.getElementById("myInput"), ['NM_007294.4:c.5096G>A','NM_007294.3:c.5096G>A','NM_000553.4:c.1181C>G',
+                'NM_000551.3:c.433C>G','NM_000548.3:c.293G>A','NM_016222.4:c.3G>A','NM_001128849.1:c.829C>T','NM_004168.3:c.456+9C>T',
+                'NM_020975.4:c.604G>A','NM_004260.3:c.2261G>A','NM_000321.2:c.983del','NM_002878.3:c.955_959dup','NM_006231.3:c.6843C>G',
+                'NM_006231.3:c.6434G>A','NM_006231.3:c.4072A>G','NM_006231.3:c.1574A>G','NM_002691.3:c.3221G>A','NM_002691.3:c.2467C>T',
+                'NM_000535.5:c.106A>C','NM_024675.3:c.3196G>A','NM_024675.3:c.2736G>A','NM_002485.4:c.1729G>T','NM_001128425.1:c.936G>A',
+                'NM_000179.2:c.2827G>T','NM_000179.2:c.2027A>G','NM_000251.2:c.1695A>C','NM_000251.2:c.1387G>A','NM_005591.3:c.862C>T',
+                'NM_005591.3:c.482A>G','NM_005591.3:c.2042C>T','NM_000249.3:c.409G>A','NM_000249.3:c.1668-?_*193+?dup','NM_000410.3:c.187C>G',
+                'NM_144997.5:c.1451A>G','NM_144997.5:c.1337G>A','NM_005228.3:c.293G>A','NM_177438.2:c.5390A>G','NM_020975.6:c.604G>A',
+                'NM_000492.3:c.178G>T','NM_004360.3:c.1137G>A','NM_031443.3:c.55C>T','NM_000388.3:c.3055G>A','NM_000059.3:c.8243G>A',
+                'NM_000059.3:c.7759C>T','NM_000059.3:c.3245A>G','NM_000059.3:c.2593G>C','NM_007294.3:c.455T>C','NM_007294.3:c.1860del',
+                'NM_007294.3:c.1175_1214del','NM_007294.3:c.1175_1214del']);
+            </script>
+
+            <script>
+                let input = document.getElementById("myInput");
+                let map = {'NM_007294.4:c.5096G>A':'21580','NM_007294.3:c.5096G>A':'21565','NM_000553.4:c.1181C>G':'21563',
+                'NM_000551.3:c.433C>G':'21562','NM_000548.3:c.293G>A':'21561','NM_016222.4:c.3G>A':'21560','NM_001128849.1:c.829C>T':'21559','NM_004168.3:c.456+9C>T':'21558',
+                'NM_020975.4:c.604G>A':'21557','NM_004260.3:c.2261G>A':'21556','NM_000321.2:c.983del':'21555','NM_002878.3:c.955_959dup':'21554','NM_006231.3:c.6843C>G':'21553',
+                'NM_006231.3:c.6434G>A':'21552','NM_006231.3:c.4072A>G':'21551','NM_006231.3:c.1574A>G':'21550','NM_002691.3:c.3221G>A':'21549','NM_002691.3:c.2467C>T':'21548',
+                'NM_000535.5:c.106A>C':'21547','NM_024675.3:c.3196G>A':'21545','NM_024675.3:c.2736G>A':'21544','NM_002485.4:c.1729G>T':'21543','NM_001128425.1:c.936G>A':'21542',
+                'NM_000179.2:c.2827G>T':'21541','NM_000179.2:c.2027A>G':'21540','NM_000251.2:c.1695A>C':'21539','NM_000251.2:c.1387G>A':'21538','NM_005591.3:c.862C>T':'21537',
+                'NM_005591.3:c.482A>G':'21536','NM_005591.3:c.2042C>T':'21535','NM_000249.3:c.409G>A':'21534','NM_000249.3:c.1668-?_*193+?dup':'21533','NM_000410.3:c.187C>G':'21531',
+                'NM_144997.5:c.1451A>G':'21530','NM_144997.5:c.1337G>A':'21529','NM_005228.3:c.293G>A':'21528','NM_177438.2:c.5390A>G':'21527','NM_020975.6:c.604G>A':'21526',
+                'NM_000492.3:c.178G>T':'21525','NM_004360.3:c.1137G>A':'21524','NM_031443.3:c.55C>T':'21522','NM_000388.3:c.3055G>A':'21521','NM_000059.3:c.8243G>A':'21520',
+                'NM_000059.3:c.7759C>T':'21519','NM_000059.3:c.3245A>G':'21518','NM_000059.3:c.2593G>C':'21517','NM_007294.3:c.455T>C':'21516','NM_007294.3:c.1860del':'21515',
+                'NM_007294.3:c.1175_1214del':'21514','NM_007294.3:c.1175_1214del':'21513'}
+                // Execute a function when the user releases a key on the keyboard
+                input.addEventListener("keyup", function(event) {
+                  // Number 13 is the "Enter" key on the keyboard
+                  if (event.keyCode === 13) {
+                    // Cancel the default action, if needed
+                    event.preventDefault();
+                    select(map[event.target.value])
+                  }
+                });
+            </script>
+            <script>
+                buildTable()
+            </script>
+            <div id="table-div">
+            </div>
+      </main>
+      </div>
+      </div>
+  </body>
+</html>
