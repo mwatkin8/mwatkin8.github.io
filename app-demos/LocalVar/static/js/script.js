@@ -19,7 +19,7 @@ function buildTrash(){
         row = "<tr id=" + fields[0] + ">"
         for(let j = 0; j < fields.length; j++){
             if (j == 0){
-                row += "<td><button onclick=\"alert('Restoring records from trash is not supported in this demo.')\" class=\"btn btn-sm btn-primary\"><img src=\"static/icons/rotate-ccw.svg\"></button> <button onclick=\"trashModal('true','" + fields[0] + "')\" class=\"btn btn-sm btn-danger\"><img src=\"../static/icons/trash-white.svg\"></button></td>"
+                row += "<td><button onclick=\"alert('Restoring records from trash is not supported in this demo.')\" class=\"btn btn-sm btn-primary\"><img src=\"static/icons/rotate-ccw.svg\"></button> <button onclick=\"trashModal('true','" + fields[0] + "')\" class=\"btn btn-sm btn-danger\"><img src=\"static/icons/trash-white.svg\"></button></td>"
             }
             row += "<td>" + fields[j] + "</td>"
         }
