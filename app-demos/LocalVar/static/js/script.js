@@ -1,3 +1,85 @@
+function checkClicks(){
+    let checks = document.getElementsByClassName('checks');
+    let count = 0;
+    for(let i=0; i<checks.length; i++){
+        if(checks[i].checked === true){
+            count += 1
+            document.getElementById('trash-button').style.display = 'block'
+        }
+        if(count > 1){
+            document.getElementById('merge-button').style.display = 'block'
+            break
+        }
+    }
+    if(count === 1){
+        document.getElementById('merge-button').style.display = 'none'
+    }
+    if(count === 0){
+        document.getElementById('trash-button').style.display = 'none'
+    }
+}
+
+function checkBoxTrash(){
+    let checks = document.getElementsByClassName('checks');
+    let ids = [];
+    for(let i=0; i<checks.length; i++){
+        if(checks[i].checked === true){
+            ids.push(checks[i].value)
+        }
+    }
+    deleteRecord(ids.join(','))
+}
+
+function checkBoxMerge(){
+    let table = "<div class=\"mt-4 media rounded box-shadow\">\
+                <div class=\"media-body pb-3 mb-0 lh-125\">\
+                    <div>\
+                        <table class=\"table table-bordered table-sm mb-1\">\
+                            <thead>\
+                                <tr id=\"HEADER\">"
+    let header = 'ID,Result,Gene,Interpretation,StandardizedResult,CodingDNARef,ProteinRef,RefSeqID,Note,HGVS,VRS'
+    let fields = header.split(',')
+    for(let i=0; i < fields.length; i++){
+        table += "                   <th><div style=\"text-align: center;\">" + fields[i] + "</div></th>"
+    }
+    table += "                   </tr>\
+                            </thead>\
+                            <tbody>"
+    let unique = Math.floor(Math.random() * 1000000) + 1
+    let record1 = '21580,c.3G>A,DDX41,Yes,p.Met1Ile,c.3G>A,p.Met1Ile,NM_016222.2,NULL,NM_007294.4:c.5096G>A,ga4gh:VA.lxDRExWJ4S5I8cgXV98LlLq3hUwcfIPc'
+    fields = record1.split(',')
+        table += "               <tr>" + buildSynRow(fields,unique) + "</tr>"
+    let record2 = '21565,c.5096G>A,BRCA1,Yes,NULL,c.5096G>A,p.Arg1699Gln,NM_007294.3,NULL,NM_007294.3:c.5096G>A,ga4gh:VA.oISAyfH0-m7JTbA-htBUdzZrXVqvh6sO'
+    fields = record2.split(',')
+    table += "               <tr>" + buildSynRow(fields,unique) + "</tr>"
+    table += "               </tbody>\
+                        </table>\
+                    </div>\
+                    <div style=\"text-align: center;\"><img src=\"static/icons/arrow-down.svg\"></div>\
+                    <div class=\"pt-1\">\
+                        <table class=\"table table-bordered table-sm\">\
+                            <tbody>\
+                            <tr id=\"" + unique + "\">"
+    for (let i=0; i < fields.length; i++){
+        table += "               <td><div style=\"text-align: center;\"></div></td>"
+    }
+    table += "                   </tr>\
+                            </tbody>\
+                        </table>\
+                    </div>\
+                    <div class=\"ml-3\" style=\"text-align:center\">\
+                        <button class=\"btn btn-sm btn-outline-success\" onclick=\"mergeSynModal('show','" + unique + "','21580,21565')\"> Merge </button>&nbsp;&nbsp;<button onclick=\"hideManMerge()\" class=\"btn btn-sm btn-outline-danger\">Cancel</button>\
+                    </div>\
+                </div>\
+            </div>"
+    document.getElementById("merge-modal").style.display = 'block'
+    document.getElementById("merge-table").innerHTML = table
+}
+
+function hideManMerge(){
+    window.location.replace("viewer.html")
+}
+
 function buildTrash(){
     trash = ['19517,c.328_333dup,BRIP1,Indeterminant,NULL,c.328_333dup,p.Tyr110_Pro111dup,NM_032043.2,NULL,NM_032043.2:c.328_333dup,ga4gh:VA.9iUHEWAMWgExI4XiqA4jlxLW6UbrVSuY',
     '19516,c.3178G>A,BRIP1,Indeterminant,NULL,c.3178G>A,p.Val1060Ile,NM_032043.2,NULL,NM_032043.2:c.3178G>A,ga4gh:VA.QyljtMnJ6nb6bMKhJ179GiLYsiUHFY8e',
@@ -10,7 +92,7 @@ function buildTrash(){
     t += "<tr id=\"HEADER\">"
     let fields = header.split(',')
     for(let i = 0; i < fields.length; i++){
-        t += "<th>" + fields[i] + "</th>"
+        t += "<th><div style=\"text-align: center;\">" + fields[i] + "</div></th>"
     }
     t += "</tr></thead><tbody>"
     rows = ''
@@ -19,9 +101,9 @@ function buildTrash(){
         row = "<tr id=" + fields[0] + ">"
         for(let j = 0; j < fields.length; j++){
             if (j == 0){
-                row += "<td><button onclick=\"alert('Restoring records from trash is not supported in this demo.')\" class=\"btn btn-sm btn-primary\"><img src=\"static/icons/rotate-ccw.svg\"></button> <button onclick=\"trashModal('true','" + fields[0] + "')\" class=\"btn btn-sm btn-danger\"><img src=\"static/icons/trash-white.svg\"></button></td>"
+                row += "<td style=\"vertical-align: middle;\"><div style=\"text-align: center;\"><button onclick=\"alert('Restoring records from trash is not supported in this demo.')\" class=\"btn btn-sm btn-primary\"><img src=\"static/icons/rotate-ccw.svg\"></button> <button onclick=\"trashModal('true','" + fields[0] + "')\" class=\"btn btn-sm btn-danger\"><img src=\"static/icons/trash-white.svg\"></button></div></td>"
             }
-            row += "<td>" + fields[j] + "</td>"
+            row += "<td style=\"vertical-align: middle;\"><div style=\"text-align: center;\">" + fields[j] + "</div></td>"
         }
         row += "</tr>\n"
         rows = row + rows
@@ -41,14 +123,20 @@ async function buildTable(){
         fields = lines[i].split(',')
         if(i === 0){
             fields.forEach((f, i) => {
-                t += "<th>" + f + "</th>"
+                t += "<th><div style=\"text-align: center;\">" + f + "</div></th>"
             });
             t += "</tr></thead><tbody>"
         }
         else{
-            t += "<tr id=" + fields[0] + " class=\"trow\" onclick=select('"+ fields[0] + "')>"
+            t += "<tr id=" + fields[0] + ">"
             fields.forEach((f, i) => {
-                t += "<td>" + f + "</td>"
+                if(i === 0){
+                    t += "<td style=\"vertical-align: middle;\"><div style=\"text-align: center;\"><span>" + f + "</span><br><input class=\"checks\" onclick=\"checkClicks()\" type=\"checkbox\" value=\"" + f + "\">\
+                    </div></td>"
+                }
+                else{
+                    t += "<td style=\"vertical-align: middle;\" onclick=\"select('"+ fields[0] + "')\"><div style=\"text-align: center;\">" + f + "</div></td>"
+                }
             });
             t += "</tr>"
         }
@@ -156,7 +244,7 @@ function suggestions(){
         let table = "<div class=\"mt-4 media rounded box-shadow\">\
                     <div class=\"media-body pb-3 mb-0 lh-125\">\
                         <div>\
-                            <table id=\"data-table\" class=\"table table-bordered table-sm mb-1\">\
+                            <table class=\"table table-bordered table-sm mb-1\">\
                                 <thead>\
                                     <tr id=\"HEADER\">"
         let header = 'ID,Result,Gene,Interpretation,StandardizedResult,CodingDNARef,ProteinRef,RefSeqID,Note,HGVS,VRS'
@@ -209,7 +297,7 @@ function suggestions(){
         let table = "<div class=\"mt-4 media rounded box-shadow\">\
                     <div class=\"media-body pb-3 mb-0 lh-125\">\
                         <div>\
-                            <table id=\"data-table\" class=\"table table-bordered table-sm mb-1\">\
+                            <table class=\"table table-bordered table-sm mb-1\">\
                                 <thead>\
                                     <tr id=\"HEADER\">"
         let header = 'ID,Result,Gene,Interpretation,StandardizedResult,CodingDNARef,ProteinRef,RefSeqID,Note,HGVS,VRS'
