@@ -123,7 +123,7 @@ pre {
 
 .initializing{
     display: none;
-    background: url('/static/images/tetris.gif') no-repeat center center;
+    background: url('../images/tetris.gif') no-repeat center center;
     background-size: 400px;
     position: absolute;
     height: 100%;
