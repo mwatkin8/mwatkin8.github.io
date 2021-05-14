@@ -179,7 +179,7 @@ async function fillTable(id){
                         document.getElementById('cv-int').innerHTML = bins[f]["ClinVar Interpretation"]
                         syn = ''
                         for(let i=0; i < bins[f]["ClinVar Synonyms"].length; i++){
-                            syn += bins[f]["ClinVar Synonyms"][i]["HGVS"] + "<br class=\"pb-2\">"
+                            syn += "<span class=\"pb-2\">" + bins[f]["ClinVar Synonyms"][i]["HGVS"] + "</span><br>"
                         }
                         document.getElementById('cv-syn').innerHTML = syn
                     }
