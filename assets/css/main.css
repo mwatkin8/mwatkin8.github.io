@@ -8,7 +8,9 @@
 */
 
 @media screen and (max-width: 750px) {
-  .too-small {display:none;} !important
+  .too-small {
+    display:none !important;
+  }
 }
 
 .white-hover:hover{
