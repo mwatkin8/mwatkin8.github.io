@@ -7,7 +7,7 @@
 	License: pixelarity.com/license
 */
 
-@media screen and (max-width: 550px){
+@media screen and (max-width: 550px) {
   .too-small {display:none;}
 }
 
