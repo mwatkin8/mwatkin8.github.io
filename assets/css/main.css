@@ -6,6 +6,11 @@
 	pixelarity.com | hello@pixelarity.com
 	License: pixelarity.com/license
 */
+
+@media screen and (max-width: 550px){
+  .too-small {display:none;}
+}
+
 .white-hover:hover{
     background: white;
 }
