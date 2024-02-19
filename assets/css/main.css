@@ -109,7 +109,7 @@ blockquote, q {
 	}
 
 table {
-	border-collapse: collapse;
+	background:transparent;
 	border-spacing: 0;
 }
 
