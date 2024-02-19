@@ -110,7 +110,6 @@ blockquote, q {
 
 table {
 	background:transparent;
-	border-spacing: 0;
 }
 
 body {
@@ -3020,7 +3019,7 @@ input, select, textarea {
 			padding: 0 0.75rem 0.75rem 0.75rem;
 			text-align: left;
 		}
-    
+
 
 /* Banner (transitions) */
 
