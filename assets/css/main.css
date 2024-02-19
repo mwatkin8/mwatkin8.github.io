@@ -7,6 +7,16 @@
 	License: pixelarity.com/license
 */
 
+.publication {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 15px;
+}
+
+pre {
+  font-family: Verdana, "Bitstream Vera Sans", Geneva, sans-serif;
+}
+
 @media screen and (max-width: 750px) {
   .too-small {
     display:none !important;
@@ -2993,15 +3003,15 @@ input, select, textarea {
 		margin: 0 0 2rem 0;
 		width: 100%;
 	}
-
+/*
 		table tbody tr {
 			border: solid 1px;
 			border-left: 0;
 			border-right: 0;
 		}
-
+*/
 		table td {
-			padding: 0.75rem 0.75rem;
+			padding: 0 0.75rem 0;
 		}
 
 		table th {
@@ -3010,7 +3020,7 @@ input, select, textarea {
 			padding: 0 0.75rem 0.75rem 0.75rem;
 			text-align: left;
 		}
-
+/*
 		table thead {
 			border-bottom: solid 2px;
 		}
@@ -3080,6 +3090,8 @@ input, select, textarea {
 	table.uniform tbody tr:nth-child(2n + 1) {
 		background-color: transparent;
 	}
+*/
+
 
 /* Banner (transitions) */
 
